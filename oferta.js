@@ -36,22 +36,30 @@
   const tickHandle = setInterval(updateTimer, 500);
   updateTimer();
 
-  const video = document.getElementById('vsl-camila-autoplay');
-  const audioButton = document.getElementById('vsl-sound');
-  const playHint = document.getElementById('vsl-play-hint');
-  if (video) {
-    video.defaultMuted = true;
-    video.muted = true;
-    const auto = video.play();
-    if (auto && typeof auto.catch === 'function') {
-      auto.catch(() => { if (playHint) playHint.hidden = false; });
-    }
-    video.addEventListener('playing', () => { if (playHint) playHint.hidden = true; });
-    audioButton?.addEventListener('click', () => {
-      video.muted = !video.muted;
-      video.volume = 1;
-      if (video.paused) video.play().catch(() => {});
-      audioButton.textContent = video.muted ? '🔊 ACTIVAR SONIDO' : '🔇 SILENCIAR';
+  // El audio es voluntario. La imagen de Camila permanece limpia.
+  const audio = document.getElementById('camila-audio');
+  const audioBtn = document.getElementById('camila-audio-button');
+  const audioError = document.getElementById('camila-audio-error');
+  if (audio && audioBtn) {
+    audioBtn.addEventListener('click', async () => {
+      try {
+        if (audio.paused) {
+          await audio.play();
+          audioBtn.textContent = '❚❚ PAUSAR PRESENTACIÓN';
+          audioBtn.setAttribute('aria-pressed','true');
+        } else {
+          audio.pause();
+          audioBtn.textContent = '▶ ESCUCHAR PRESENTACIÓN';
+          audioBtn.setAttribute('aria-pressed','false');
+        }
+        if (audioError) audioError.hidden = true;
+      } catch(e) {
+        if (audioError) audioError.hidden = false;
+      }
+    });
+    audio.addEventListener('ended', () => {
+      audioBtn.textContent = '▶ ESCUCHAR PRESENTACIÓN';
+      audioBtn.setAttribute('aria-pressed','false');
     });
   }
 

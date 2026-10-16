@@ -177,3 +177,76 @@ img{display:block;max-width:100%}
 .results-disclaimer{font-size:12px;text-align:center;color:#7e7180;margin:12px auto 20px;max-width:650px;}
 @media(max-width:600px){.sales-page .vsl-auto-card{width:min(100%,340px);padding:8px;}
   .attention-call .container{font-size:13px;} .sales-page .countdown-top #timer-top{font-size:30px;}}
+
+
+/* Página reducida: arquitectura mobile first — v1 */
+.new-minimal {background:#f9f4fb;color:#27132e;padding:0!important;}
+.new-minimal .nm-timer-strip {
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  position:sticky;top:0;z-index:200;min-height:58px;padding:8px max(14px,calc((100vw - 640px)/2));
+  color:#fff;background:linear-gradient(105deg,#6d0c85,#930aa2);
+  box-shadow:0 5px 20px rgba(56,8,73,.16);
+}
+.new-minimal .nm-timer-caption{font-size:11px;font-weight:900;letter-spacing:.05em;line-height:1.1;}
+.new-minimal .nm-time{
+  background:transparent!important;border:0!important;box-shadow:none!important;
+  padding:0!important;color:#ff4966!important;font-size:clamp(27px,6vw,40px);
+  font-weight:1000;letter-spacing:0;line-height:1;font-variant-numeric:tabular-nums;text-shadow:none!important;
+}
+.new-minimal .nm-top-cta{display:inline-flex;align-items:center;justify-content:center;gap:4px;
+  min-width:83px;padding:10px 13px;border-radius:100px;background:#00a843;color:#fff;
+  font-size:11px;letter-spacing:.03em;font-weight:900;}
+.new-minimal .nm-content{width:min(100%,640px);margin:auto;background:#fff;}
+.new-minimal .nm-hero{text-align:center;padding:27px 18px 28px;}
+.new-minimal .nm-label{margin:0;color:#7b168e;font-size:12px;font-weight:950;letter-spacing:.09em;}
+.new-minimal .nm-hero h1{font-size:clamp(30px,6.8vw,49px);line-height:1.03;margin:15px auto 9px;letter-spacing:-.035em;font-weight:950;max-width:570px;}
+.new-minimal .nm-hero h1 em{font-style:normal;color:#079d49;}
+.new-minimal .nm-mini-benefits{font-weight:900;font-size:12px;letter-spacing:.03em;margin:0 0 18px;color:#59475e;}
+.new-minimal .nm-mini-benefits span{color:#aa9bb0;padding:0 2px;}
+.new-minimal .nm-main-photo{border-radius:18px;overflow:hidden;margin:0 auto 20px;max-width:470px;background:#f9f4fb;}
+.new-minimal .nm-main-photo img{width:100%;height:auto;display:block;aspect-ratio:471/282;object-fit:cover;}
+.new-minimal .nm-price-area{display:flex;align-items:baseline;justify-content:center;gap:9px;flex-wrap:wrap;margin:0 auto 16px;}
+.new-minimal .nm-price-area span,.new-minimal .nm-price-area small{font-size:11px;color:#65566e;font-weight:850;}
+.new-minimal .nm-price-area strong{color:#0b9b43;font-size:clamp(32px,9vw,46px);font-weight:1000;line-height:1;}
+.new-minimal .nm-main-cta{
+ display:flex;align-items:center;justify-content:center;gap:10px;max-width:450px;
+ border-radius:999px;background:#00a943;color:#fff;text-align:center;
+ min-height:55px;padding:14px 16px;margin:0 auto;font-size:clamp(14px,3.6vw,18px);
+ font-weight:1000;letter-spacing:.02em;box-shadow:0 10px 24px rgba(0,169,67,.24);
+ animation:nm-subtle-pulse 2.2s infinite ease-in-out;
+}
+.new-minimal .nm-safe{font-size:12px;font-weight:750;color:#79707f;margin:10px 0 0;}
+.new-minimal .nm-presenter{
+ display:grid;grid-template-columns:minmax(0,150px) 1fr;gap:15px;align-items:center;
+ background:linear-gradient(115deg,#f6eefa,#fefcff);border-top:1px solid #eee0f1;
+ padding:19px 18px;
+}
+.new-minimal .nm-presenter-photo{border-radius:18px;overflow:hidden;aspect-ratio:1/1;}
+.new-minimal .nm-presenter-photo img{height:100%;width:100%;object-fit:cover;}
+.new-minimal .nm-presenter-info{text-align:left;min-width:0;}
+.new-minimal .nm-presenter-info h2{font-size:clamp(20px,4vw,27px);margin:7px 0;line-height:1.05;}
+.new-minimal .nm-presenter-info p{font-size:13px;color:#615469;margin:0 0 12px;}
+.new-minimal .nm-audio-button{border:1px solid #6d1986;border-radius:12px;
+  padding:10px 12px;background:#fff;color:#6e1487;font-size:11px;
+  font-weight:950;cursor:pointer;max-width:100%;}
+.new-minimal .nm-audio-error{font-size:11px;color:#ac2851;margin:7px 0 0;}
+.new-minimal .nm-results{text-align:center;padding:23px 18px;border-top:1px solid #ede2ef;}
+.new-minimal .nm-results h2{font-size:clamp(21px,5vw,29px);margin:8px 0 15px;letter-spacing:-.025em;line-height:1.15;}
+.new-minimal .nm-results-photo{max-width:360px;margin:0 auto;}
+.new-minimal .nm-results-photo img{display:block;max-width:100%;height:auto;border-radius:13px;margin:auto;}
+.new-minimal .nm-reference{font-size:10px;color:#7b727f;margin:9px 0 0;}
+.new-minimal .nm-final{background:linear-gradient(140deg,#5c107a,#8a0c9b);
+  color:#fff;text-align:center;padding:26px 18px 32px;}
+.new-minimal .nm-final>span{font-size:11px;letter-spacing:.12em;font-weight:850;}
+.new-minimal .nm-final h2{font-size:clamp(23px,5.2vw,33px);line-height:1.08;letter-spacing:-.02em;margin:11px 0;}
+.new-minimal .nm-final>strong{display:block;font-size:40px;margin:5px 0 15px;}
+.new-minimal .nm-final>p{font-size:12px;margin:10px 0 0;}
+@keyframes nm-subtle-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
+@media(max-width:390px){
+ .new-minimal .nm-timer-strip{gap:7px;padding-inline:9px;}
+ .new-minimal .nm-timer-caption{font-size:10px;}
+ .new-minimal .nm-top-cta{min-width:72px;padding:10px 8px;font-size:10px;}
+ .new-minimal .nm-presenter{grid-template-columns:115px 1fr;gap:11px;padding:15px 12px;}
+ .new-minimal .nm-audio-button{font-size:10px;padding:9px 6px;}
+}
+@media(prefers-reduced-motion:reduce){.new-minimal .nm-main-cta{animation:none;}}

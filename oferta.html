@@ -1,191 +1,63 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#6f138b">
-  <title>Oferta personalizada | Piernas & Glúteos</title>
-  <meta name="description" content="Oferta personalizada para piernas y glúteos: 4 semanas, en casa, acceso inmediato.">
-  <link rel="stylesheet" href="styles.css?v=auto-vsl-v5">
-  <script src="config.js" defer></script>
-  <script src="oferta.js?v=auto-vsl-v5" defer></script>
-  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#69107f">
+<meta name="description" content="Tu plan de piernas y glúteos para 4 semanas. En casa, sesiones cortas y acceso digital.">
+<title>Tu plan de 4 semanas | Piernas & Glúteos</title>
+<link rel="stylesheet" href="styles.css?v=simple-mobile-v1">
+<script src="config.js" defer></script>
+<script src="oferta.js?v=simple-mobile-v1" defer></script>
 </head>
-<body class="sales-page">
-  <div class="announcement">TU OFERTA PERSONALIZADA · ACCESO DIGITAL</div>
-  <div class="countdown-top" aria-label="Temporizador de tu sesión de compra">
-    <div class="container countdown-top-inner">
-      <span class="countdown-label"><span class="countdown-pulse" aria-hidden="true"></span> TU SESIÓN DE COMPRA</span>
-      <strong id="timer-top" class="countdown-digits" role="timer" aria-live="off">05:00</strong>
-      <a data-checkout href="https://pay.cakto.com.br/4nit5km_1204793" class="countdown-buy">QUIERO MI OFERTA <span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-
-  <section class="attention-call" role="note"><div class="container">
-  <strong>⚠ ¡ATENCIÓN!</strong> Tu plan de 4 semanas está listo.
-  <span>¡No pospongas el cambio que quieres comenzar!</span>
-  <b>Empieza hoy por solo US$ 6.90.</b>
-  </div></section>
-  <header class="simple-top">
-    <div class="container simple-top-inner">
-      <div class="brand-mini">
-        <span class="brand-dot"></span>
-        <div>
-          <strong>PIERNAS & GLÚTEOS</strong>
-          <small>Método de 4 semanas</small>
-        </div>
-      </div>
-      <a class="nav-cta" data-checkout href="#oferta">Comprar ahora</a>
-    </div>
+<body class="sales-page new-minimal">
+  <header class="nm-timer-strip" aria-label="Temporizador de sesión">
+    <span class="nm-timer-caption">TU SESIÓN</span>
+    <strong class="nm-time" id="timer-top" role="timer" aria-live="off">05:00</strong>
+    <a data-checkout class="nm-top-cta" href="https://pay.cakto.com.br/4nit5km_1204793">ACCESO <span aria-hidden="true">→</span></a>
   </header>
-
-  <main>
-    <section class="hero-lite">
-      <div class="container hero-lite-grid">
-        <div>
-          <span class="eyebrow">OFERTA PERSONALIZADA</span>
-          <h1>¡Empieza hoy! <span class="marker">Piernas más fuertes</span> y <span class="marker">glúteos más firmes</span> con tu plan de 4 semanas.</h1>
-          <p class="hero-short" id="personalLine">En casa · 20 min · 4 semanas · acceso inmediato.</p>
-          <div class="bullet-row compact">
-            <span>✓ En casa</span>
-            <span>✓ 20 min</span>
-            <span>✓ 4 semanas</span>
-          </div>
-          <div class="price-inline">
-            
-            <strong>US$ 6.90</strong>
-            <small>pago único</small>
-          </div>
-          <div class="cta-group">
-            <a class="cta cta-big" data-checkout href="#oferta">QUIERO MI OFERTA →</a>
-            <div class="mini-timer">Tu sesión: <b id="timer">05:00</b></div>
-          </div>
-        </div>
-        <div class="hero-visual-card">
-          <img src="assets/before-after-main.png" alt="Antes y después principal">
-          <div class="floating-tag">TU PLAN ESTÁ LISTO</div>
-        </div>
+  <main class="nm-content">
+    <section class="nm-hero">
+      <p class="nm-label">TU PLAN ESTÁ LISTO</p>
+      <h1>PIERNAS <em>MÁS FIRMES.</em><br>GLÚTEOS <em>MÁS FUERTES.</em></h1>
+      <p class="nm-mini-benefits">4 SEMANAS <span>•</span> EN CASA <span>•</span> 20 MIN</p>
+      <figure class="nm-main-photo">
+        <img src="assets/antes-despues-ejemplo.webp" alt="Comparación de referencia, antes y después" fetchpriority="high">
+      </figure>
+      <div class="nm-price-area">
+        <span>ACCESO DIGITAL</span>
+        <strong>US$ 6.90</strong>
+        <small>PAGO ÚNICO</small>
+      </div>
+      <a data-checkout class="nm-main-cta" href="https://pay.cakto.com.br/4nit5km_1204793">QUIERO EMPEZAR AHORA <span aria-hidden="true">→</span></a>
+      <p class="nm-safe">🔒 Compra segura en Cakto</p>
+    </section>
+    <section class="nm-presenter">
+      <div class="nm-presenter-photo">
+        <img src="assets/vsl-camila-poster.png" alt="Presentadora del método" loading="lazy">
+      </div>
+      <div class="nm-presenter-info">
+        <span class="nm-label">CONOCE EL MÉTODO</span>
+        <h2>Empieza a tu ritmo.</h2>
+        <p>Sin rutinas interminables.</p>
+        <button type="button" id="camila-audio-button" class="nm-audio-button" aria-pressed="false">▶ ESCUCHAR PRESENTACIÓN</button>
+        <audio id="camila-audio" preload="none" src="assets/vsl-camila-final.mp4"></audio>
+        <p id="camila-audio-error" class="nm-audio-error" hidden>No se pudo reproducir el audio.</p>
       </div>
     </section>
-
-    <section class="vsl-clean" aria-label="Presentación del método">
-      <div class="container">
-        <div class="section-heading center-head">
-          <span class="eyebrow">TU PLAN EMPIEZA AQUÍ</span>
-          <h2>¡Empieza hoy tu cambio!</h2>
-        </div>
-        <div class="vsl-auto-card">
-          <span class="vsl-headline">● CAMILA TE EXPLICA EL MÉTODO</span>
-          <video id="vsl-camila-autoplay" autoplay muted playsinline loop controls preload="auto"
-            width="720" height="1280" poster="assets/vsl-camila-poster.png" aria-label="Presentación de Camila en español">
-            <source src="assets/vsl-camila-final.mp4" type="video/mp4">
-          </video>
-          <button id="vsl-sound" class="vsl-sound" type="button">🔊 ACTIVAR SONIDO</button>
-          <p id="vsl-play-hint" hidden>Para iniciar el vídeo, toca Reproducir.</p>
-        </div>
-        <a class="cta cta-big pulse-cta" data-checkout href="https://pay.cakto.com.br/4nit5km_1204793">QUIERO EMPEZAR POR US$ 6.90 →</a>
-      </div>
+    <section class="nm-results">
+      <span class="nm-label">UNA META, UN PLAN</span>
+      <h2>Da el primer paso hoy.</h2>
+      <div class="nm-results-photo"><img src="assets/before-after-main.png" alt="Ejemplo visual comparativo de antes y después" loading="lazy"></div>
+      <p class="nm-reference">Imágenes de referencia. Los resultados individuales varían.</p>
     </section>
-
-    <section class="social-proof-block">
-      <div class="container">
-        <div class="section-heading center-head">
-          <span class="eyebrow">RESULTADOS Y PRUEBA SOCIAL</span>
-          <h2>¡Imagina lo que puedes conseguir con constancia!</h2>
-        </div>
-        <div class="proof-grid">
-          <article class="mini-proof-card">
-            <img src="assets/antes-despues-ejemplo.webp" alt="Comparativa antes y después compartida como referencia">
-            <div class="proof-caption">ANTES / DESPUÉS</div>
-          </article>
-          <article class="mini-proof-card">
-            <img src="assets/before-after-alt.png" alt="Antes y después 2">
-            <div class="proof-caption">ENTRENA CON CONSTANCIA</div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <p class="results-disclaimer">Las imágenes son referencias visuales. Los resultados varían.</p>
-    <section class="testimonials-short">
-      <div class="container">
-        <div class="section-heading center-head">
-          <span class="eyebrow">TESTIMONIOS</span>
-          <h2>Empieza a sentirte más segura.</h2>
-        </div>
-        <div class="testimonial-grid">
-          <article class="t-card">
-            <div class="t-head"><img src="assets/testimonial-clara.jpg" alt="Clara Martins"><div><strong>Clara Martins</strong><small>★★★★★</small></div></div>
-            <p>“La guía fue un antes y después. Las piernas se sienten más firmes y el glúteo se nota mucho más.”</p>
-          </article>
-          <article class="t-card">
-            <div class="t-head"><img src="assets/testimonial-mariana.jpg" alt="Mariana Teixeira"><div><strong>Mariana Teixeira</strong><small>★★★★★</small></div></div>
-            <p>“Por fin encontré algo que no castiga mis rodillas y sí me hace sentir el trabajo.”</p>
-          </article>
-          <article class="t-card">
-            <div class="t-head"><img src="assets/testimonial-ana.jpg" alt="Ana Clara T."><div><strong>Ana Clara T.</strong><small>★★★★★</small></div></div>
-            <p>“Recuperé las ganas de entrenar. Me sentí más segura, más constante y más motivada.”</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="offer-focus" id="oferta">
-      <div class="container">
-        <div class="offer-box">
-          <div class="offer-left">
-            <span class="eyebrow">ACCESO DIGITAL · PLAN PERSONALIZADO</span>
-            <h2>Tu acceso por <span class="marker">US$ 6.90</span></h2>
-            <ul class="offer-list">
-              <li>✓ Plan de 4 semanas</li>
-              <li>✓ Enfoque en piernas y glúteos</li>
-              <li>✓ Formato digital</li>
-              <li>✓ Empiezas hoy mismo</li>
-            </ul>
-          </div>
-          <div class="offer-right">
-            <div class="price-stack">
-              
-              <strong>US$ 6.90</strong>
-              <small>pago único</small>
-            </div>
-            <div class="urgency-card">
-              <span>Tiempo de tu sesión</span>
-              <b id="timer2">05:00</b>
-            </div>
-            <a class="cta cta-big" data-checkout href="#">COMPRAR AHORA →</a>
-            <div class="safe-row">
-              <span>🔒 Checkout seguro</span>
-              <span>⚡ Acceso digital</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="faq-mini">
-      <div class="container">
-        <div class="section-heading center-head">
-          <span class="eyebrow">PREGUNTAS RÁPIDAS</span>
-          <h2>Lo esencial antes de entrar.</h2>
-        </div>
-        <div class="faq-grid">
-          <details open><summary>¿Es para hacer en casa?</summary><p>Sí. Fue pensado para hacerlo sin depender del gimnasio.</p></details>
-          <details><summary>¿Cuánto dura?</summary><p>4 semanas con sesiones cortas y enfoque directo.</p></details>
-          <details><summary>¿Cómo accedo?</summary><p>Compras y recibes el acceso digital de inmediato en el checkout.</p></details>
-        </div>
-      </div>
+    <section class="nm-final">
+      <span>PLAN DIGITAL · 4 SEMANAS</span>
+      <h2>Tu cambio comienza con una decisión.</h2>
+      <strong>US$ 6.90</strong>
+      <a data-checkout class="nm-main-cta" href="https://pay.cakto.com.br/4nit5km_1204793">QUIERO MI PLAN <span aria-hidden="true">→</span></a>
+      <p>Acceso digital · Pago único</p>
     </section>
   </main>
-
-  <div class="sticky-buy">
-    <div class="container sticky-buy-inner">
-      <div>
-        <strong>Tu oferta</strong>
-        <small>US$ 6.90 · acceso inmediato</small>
-      </div>
-      <a class="cta" data-checkout href="#oferta">QUIERO MI GUÍA →</a>
-    </div>
-  </div>
 </body>
 </html>
