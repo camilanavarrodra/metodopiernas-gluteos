@@ -1,0 +1,47 @@
+name: Atualizar VSL tratada
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/trocar-vsl-tratada.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obter arquivos do site
+        uses: actions/checkout@v4
+      - name: Baixar VSL tratada
+        env:
+          CLEAN_VSL_URL: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3JLzDbEEfq6UBxVOWEVHmfl7suN/d6b28974-4aa3-404f-90c3-b90d9706b719.mp4'
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --silent --show-error \
+            --output assets/vsl-camila-tratada.mp4 "$CLEAN_VSL_URL"
+          BYTES=$(stat -c%s assets/vsl-camila-tratada.mp4)
+          test "$BYTES" -gt 1000000
+          test "$BYTES" -lt 95000000
+          file assets/vsl-camila-tratada.mp4 | grep -E 'ISO Media|MPEG-4|MP4'
+      - name: Substituir arquivo na página
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path("oferta.html")
+          content=p.read_text(encoding="utf-8")
+          current='assets/vsl-camila-final.mp4'
+          assert current in content, 'O video anterior nao foi encontrado na oferta'
+          content=content.replace(current,'assets/vsl-camila-tratada.mp4')
+          content=content.replace('styles.css?v=vsl-retorno-20261016','styles.css?v=vsl-limpa-v2')
+          content=content.replace('oferta.js?v=vsl-retorno-20261016','oferta.js?v=vsl-limpa-v2')
+          p.write_text(content,encoding="utf-8")
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add oferta.html assets/vsl-camila-tratada.mp4
+          git commit -m 'Publicar VSL tratada mantendo audio e enquadramento'
+          git push
