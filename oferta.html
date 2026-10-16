@@ -11,8 +11,15 @@
   <script src="oferta.js" defer></script>
   <script src="vsl-loader.js" defer></script>
 </head>
-<body>
-  <div class="announcement">TU OFERTA PERSONALIZADA ESTÁ ACTIVA · SOLO POR HOY</div>
+<body class="sales-page">
+  <div class="announcement">TU OFERTA PERSONALIZADA · ACCESO DIGITAL</div>
+  <div class="countdown-top" aria-label="Temporizador de tu sesión de compra">
+    <div class="container countdown-top-inner">
+      <span class="countdown-label"><span class="countdown-pulse" aria-hidden="true"></span> TU SESIÓN DE COMPRA</span>
+      <strong id="timer-top" class="countdown-digits" role="timer" aria-live="off">05:00</strong>
+      <a data-checkout href="https://pay.cakto.com.br/4nit5km_1204793" class="countdown-buy">QUIERO MI OFERTA <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
 
   <header class="simple-top">
     <div class="container simple-top-inner">
@@ -46,7 +53,7 @@
           </div>
           <div class="cta-group">
             <a class="cta cta-big" data-checkout href="#oferta">QUIERO MI OFERTA →</a>
-            <div class="mini-timer">Expira en <b id="timer">14:59</b></div>
+            <div class="mini-timer">Tu sesión: <b id="timer">05:00</b></div>
           </div>
         </div>
         <div class="hero-visual-card">
@@ -124,8 +131,8 @@
       <div class="container">
         <div class="offer-box">
           <div class="offer-left">
-            <span class="eyebrow">ACCESO DIGITAL · SOLO HOY</span>
-            <h2>Tu acceso hoy por <span class="marker">29.90</span></h2>
+            <span class="eyebrow">ACCESO DIGITAL · PLAN PERSONALIZADO</span>
+            <h2>Tu acceso por <span class="marker">29.90</span></h2>
             <ul class="offer-list">
               <li>✓ Plan de 4 semanas</li>
               <li>✓ Enfoque en piernas y glúteos</li>
@@ -140,8 +147,8 @@
               <small>pago único</small>
             </div>
             <div class="urgency-card">
-              <span>Tu oferta personalizada vence en</span>
-              <b id="timer2">14:59</b>
+              <span>Tiempo de tu sesión</span>
+              <b id="timer2">05:00</b>
             </div>
             <a class="cta cta-big" data-checkout href="#">COMPRAR AHORA →</a>
             <div class="safe-row">
@@ -171,7 +178,7 @@
   <div class="sticky-buy">
     <div class="container sticky-buy-inner">
       <div>
-        <strong>Oferta de hoy</strong>
+        <strong>Tu oferta</strong>
         <small>29.90 · acceso inmediato</small>
       </div>
       <a class="cta" data-checkout href="#oferta">QUIERO MI GUÍA →</a>

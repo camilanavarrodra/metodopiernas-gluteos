@@ -54,3 +54,22 @@ img{display:block;max-width:100%}
 
 .proof-note{font-size:12px;color:#796b85;text-align:center;margin:12px 0 0;line-height:1.4}
 [hidden] { display: none !important; }
+
+/* Temporizador fixo de cinco minutos na página de vendas */
+.sales-page .simple-top{position:relative;top:auto}
+.countdown-top{
+  position:sticky;top:0;z-index:70;background:linear-gradient(100deg,#5c096f,#9316b3);
+  color:#fff;border-bottom:2px solid #c94ae6;box-shadow:0 9px 25px rgba(57,0,68,.22)
+}
+.countdown-top-inner{min-height:76px;display:flex;align-items:center;justify-content:center;gap:24px;padding:12px 0}
+.countdown-label{font-size:13px;letter-spacing:.09em;font-weight:900;text-transform:uppercase;display:flex;align-items:center;gap:9px}
+.countdown-pulse{display:block;width:10px;height:10px;border-radius:50%;background:#78ff9c;box-shadow:0 0 0 5px rgba(120,255,156,.18)}
+.countdown-digits{font-size:clamp(30px,4vw,43px);line-height:1;font-weight:1000;letter-spacing:.035em;font-variant-numeric:tabular-nums;color:#fff}
+.countdown-buy{background:#06ad44;border-radius:999px;color:#fff;padding:12px 21px;font-size:13px;font-weight:900;text-align:center;box-shadow:0 7px 22px rgba(0,0,0,.16)}
+.session-ended .countdown-pulse{background:#fbd2c2;box-shadow:0 0 0 5px rgba(251,210,194,.16)}
+@media (max-width:600px){
+  .countdown-top-inner{min-height:62px;padding:9px 0;gap:9px;justify-content:space-between}
+  .countdown-label{font-size:10px;line-height:1.2;letter-spacing:0;max-width:104px}
+  .countdown-digits{font-size:29px}
+  .countdown-buy{padding:10px 11px;font-size:10px;max-width:125px;line-height:1.2}
+}
