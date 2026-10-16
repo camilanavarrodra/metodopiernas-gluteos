@@ -36,4 +36,23 @@
   const tickHandle = setInterval(updateTimer, 500);
   updateTimer();
 
+  const video = document.getElementById('vsl-camila-autoplay');
+  const audioButton = document.getElementById('vsl-sound');
+  const playHint = document.getElementById('vsl-play-hint');
+  if (video) {
+    video.defaultMuted = true;
+    video.muted = true;
+    const auto = video.play();
+    if (auto && typeof auto.catch === 'function') {
+      auto.catch(() => { if (playHint) playHint.hidden = false; });
+    }
+    video.addEventListener('playing', () => { if (playHint) playHint.hidden = true; });
+    audioButton?.addEventListener('click', () => {
+      video.muted = !video.muted;
+      video.volume = 1;
+      if (video.paused) video.play().catch(() => {});
+      audioButton.textContent = video.muted ? '🔊 ACTIVAR SONIDO' : '🔇 SILENCIAR';
+    });
+  }
+
 })();

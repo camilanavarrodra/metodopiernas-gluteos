@@ -148,3 +148,32 @@ img{display:block;max-width:100%}
  .sales-page #timer-top{padding:7px 9px;font-size:25px;}
  .sales-page .vsl-photo-card{width:min(100%,325px);}
 }
+
+/* Lançamento da página com novo VSL e oferta visual */
+.sales-page .countdown-top #timer-top {
+  background: transparent!important; border: 0!important; padding: 0!important;
+  box-shadow: none!important; border-radius: 0!important; color: #ff455d!important;
+  text-shadow: 0 2px 9px rgba(29,0,39,.36); font-size: clamp(30px, 4.2vw, 49px);
+  line-height: 1; font-weight: 1000;
+}
+.attention-call{background:#fff; border-bottom:1px solid #f1dbe6; text-align:center; padding:12px 0;}
+.attention-call .container{font-size:clamp(13px,1.7vw,18px);font-weight:700;line-height:1.33;}
+.attention-call strong{color:#2b2229;}
+.attention-call span,.attention-call b{color:#d40635;font-weight:950;}
+.attention-call b{display:block;text-decoration:underline;}
+.sales-page .vsl-auto-card{
+  width:min(100%,370px);margin:0 auto 17px;padding:9px;border-radius:23px;
+  border:1px solid #eadbed;background:#fff;box-shadow:0 16px 32px rgba(50,12,65,.12);
+}
+.vsl-headline{display:block;text-align:center;color:#6d177f;font-size:11px;
+  letter-spacing:.08em;font-weight:900;padding:5px 0 9px;}
+.sales-page #vsl-camila-autoplay{display:block;width:100%;height:auto;max-height:none;
+  aspect-ratio:9 / 16;object-fit:contain;object-position:center;
+  border-radius:16px;background:#170c21;}
+.vsl-sound{display:block;margin:10px auto 0;width:100%;border:0;border-radius:14px;
+  padding:12px 16px;background:#721695;color:#fff;cursor:pointer;font-size:13px;font-weight:900;}
+#vsl-play-hint{text-align:center;color:#7f336a;font-size:12px;font-weight:700;}
+.sales-page .mini-proof-card img{aspect-ratio:5/3!important;object-fit:contain!important;background:#fff;}
+.results-disclaimer{font-size:12px;text-align:center;color:#7e7180;margin:12px auto 20px;max-width:650px;}
+@media(max-width:600px){.sales-page .vsl-auto-card{width:min(100%,340px);padding:8px;}
+  .attention-call .container{font-size:13px;} .sales-page .countdown-top #timer-top{font-size:30px;}}
