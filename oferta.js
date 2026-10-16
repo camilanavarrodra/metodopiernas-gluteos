@@ -36,30 +36,30 @@
   const tickHandle = setInterval(updateTimer, 500);
   updateTimer();
 
-  // El audio es voluntario. La imagen de Camila permanece limpia.
-  const audio = document.getElementById('camila-audio');
-  const audioBtn = document.getElementById('camila-audio-button');
-  const audioError = document.getElementById('camila-audio-error');
-  if (audio && audioBtn) {
-    audioBtn.addEventListener('click', async () => {
-      try {
-        if (audio.paused) {
-          await audio.play();
-          audioBtn.textContent = '❚❚ PAUSAR PRESENTACIÓN';
-          audioBtn.setAttribute('aria-pressed','true');
-        } else {
-          audio.pause();
-          audioBtn.textContent = '▶ ESCUCHAR PRESENTACIÓN';
-          audioBtn.setAttribute('aria-pressed','false');
-        }
-        if (audioError) audioError.hidden = true;
-      } catch(e) {
-        if (audioError) audioError.hidden = false;
+  const video = document.getElementById('camila-vsl');
+  const soundButton = document.getElementById('camila-sound');
+  const playError = document.getElementById('camila-play-error');
+  if (video) {
+    // Mobile browsers usually allow autoplay only while muted.
+    video.defaultMuted = true;
+    video.muted = true;
+    const tryAutoplay = () => {
+      const attempt = video.play();
+      if (attempt && typeof attempt.catch === 'function') {
+        attempt.catch(() => {
+          if (playError) playError.hidden = false;
+        });
       }
-    });
-    audio.addEventListener('ended', () => {
-      audioBtn.textContent = '▶ ESCUCHAR PRESENTACIÓN';
-      audioBtn.setAttribute('aria-pressed','false');
+    };
+    video.addEventListener('playing', () => { if (playError) playError.hidden = true; });
+    video.addEventListener('loadedmetadata', tryAutoplay, {once: true});
+    if (video.readyState >= 1) tryAutoplay();
+
+    soundButton?.addEventListener('click', () => {
+      video.muted = !video.muted;
+      soundButton.textContent = video.muted ? '🔊 ACTIVAR SONIDO' : '🔇 SILENCIAR';
+      soundButton.setAttribute('aria-pressed', String(!video.muted));
+      if (video.paused) tryAutoplay();
     });
   }
 

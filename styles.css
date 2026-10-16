@@ -250,3 +250,28 @@ img{display:block;max-width:100%}
  .new-minimal .nm-audio-button{font-size:10px;padding:9px 6px;}
 }
 @media(prefers-reduced-motion:reduce){.new-minimal .nm-main-cta{animation:none;}}
+
+/* VSL restaurada: contenção 9:16 real, sem zoom e mobile-first. */
+.new-minimal .nm-video-section {
+  padding:23px 18px 27px;text-align:center;
+  border-top:1px solid #eadfed;background:linear-gradient(180deg,#fbf6fd 0%,#ffffff 95%);
+}
+.new-minimal .nm-video-section>h2{font-size:clamp(22px,4.8vw,30px);line-height:1.1;margin:9px 0 17px;}
+.new-minimal .nm-video-frame{
+  width:min(100%,345px);margin:0 auto;
+  padding:8px;border-radius:22px;
+  background:#fff;border:1px solid #e9d5ec;
+  box-shadow:0 14px 32px rgba(59,6,83,.13);
+}
+.new-minimal #camila-vsl{
+  display:block;width:100%;height:auto;max-width:100%;
+  aspect-ratio:9/16;object-fit:contain;object-position:center;
+  border-radius:14px;background:#170c20;
+}
+.new-minimal .nm-sound-control{
+  display:block;width:min(100%,345px);margin:12px auto 0;
+  border:1px solid #6f1687;border-radius:15px;
+  background:#fff;color:#65177f;cursor:pointer;padding:12px 15px;
+  font-size:13px;font-weight:950;
+}
+.new-minimal .nm-video-error{font-size:12px;color:#715b7b;margin:8px 0;}

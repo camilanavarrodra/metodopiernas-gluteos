@@ -6,9 +6,9 @@
 <meta name="theme-color" content="#69107f">
 <meta name="description" content="Tu plan de piernas y glúteos para 4 semanas. En casa, sesiones cortas y acceso digital.">
 <title>Tu plan de 4 semanas | Piernas & Glúteos</title>
-<link rel="stylesheet" href="styles.css?v=simple-mobile-v1">
+<link rel="stylesheet" href="styles.css?v=vsl-retorno-20261016">
 <script src="config.js" defer></script>
-<script src="oferta.js?v=simple-mobile-v1" defer></script>
+<script src="oferta.js?v=vsl-retorno-20261016" defer></script>
 </head>
 <body class="sales-page new-minimal">
   <header class="nm-timer-strip" aria-label="Temporizador de sesión">
@@ -32,18 +32,19 @@
       <a data-checkout class="nm-main-cta" href="https://pay.cakto.com.br/4nit5km_1204793">QUIERO EMPEZAR AHORA <span aria-hidden="true">→</span></a>
       <p class="nm-safe">🔒 Compra segura en Cakto</p>
     </section>
-    <section class="nm-presenter">
-      <div class="nm-presenter-photo">
-        <img src="assets/vsl-camila-poster.png" alt="Presentadora del método" loading="lazy">
+    <section class="nm-video-section" aria-label="Presentación en vídeo">
+      <p class="nm-label">CAMILA TE PRESENTA EL MÉTODO</p>
+      <h2>Empieza en casa.</h2>
+      <div class="nm-video-frame">
+        <video id="camila-vsl" autoplay muted playsinline loop controls preload="metadata"
+          width="720" height="1280" poster="assets/vsl-camila-poster.png"
+          aria-label="Presentación del método Piernas y Glúteos en español">
+          <source src="assets/vsl-camila-final.mp4" type="video/mp4">
+          Tu navegador no puede reproducir el vídeo.
+        </video>
       </div>
-      <div class="nm-presenter-info">
-        <span class="nm-label">CONOCE EL MÉTODO</span>
-        <h2>Empieza a tu ritmo.</h2>
-        <p>Sin rutinas interminables.</p>
-        <button type="button" id="camila-audio-button" class="nm-audio-button" aria-pressed="false">▶ ESCUCHAR PRESENTACIÓN</button>
-        <audio id="camila-audio" preload="none" src="assets/vsl-camila-final.mp4"></audio>
-        <p id="camila-audio-error" class="nm-audio-error" hidden>No se pudo reproducir el audio.</p>
-      </div>
+      <button type="button" id="camila-sound" class="nm-sound-control" aria-pressed="false">🔊 ACTIVAR SONIDO</button>
+      <p id="camila-play-error" class="nm-video-error" hidden>Toca reproducir para ver la presentación.</p>
     </section>
     <section class="nm-results">
       <span class="nm-label">UNA META, UN PLAN</span>
