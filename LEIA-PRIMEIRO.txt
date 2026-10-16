@@ -1,0 +1,63 @@
+# FUNIL PRONTO PARA GITHUB PAGES — INSTRUÇÕES (LEIA PRIMEIRO)
+
+**Não envie este ZIP inteiro ao GitHub.** Extraia e envie os arquivos DE DENTRO dele.
+
+## 1. Estrutura correta
+
+Na aba Código do seu repositório (branch main), a primeira tela precisa mostrar:
+
+    index.html
+    oferta.html
+    styles.css
+    quiz.js
+    oferta.js
+    config.js
+    vsl-loader.js
+    .nojekyll
+    assets/                 <- pasta com fotos e vídeos
+
+**index.html DEVE estar na raiz do repositório**, e não em `QUIZ-VSL-GITHUB-PRONTO/`, `site/`, `dist/` ou qualquer outra subpasta.
+
+## 2. Como substituir tudo no GitHub
+
+1. Acesse seu repositório e clique na aba **Código**.
+2. Se já houver arquivos antigos na raiz, substitua-os com as versões novas de mesmo nome.
+   - Para evitar conflitos com subpastas antigas, remova/mova os arquivos antigos que estejam na pasta errada.
+3. No seu computador, EXTRAIA `QUIZ-VSL-GITHUB-PRONTO.zip`.
+4. Entre na pasta extraída, selecione todos os arquivos e a pasta `assets` e arraste para **Add file > Upload files**.
+   - Alguns navegadores não aceitam arrastar pasta; selecione todos os arquivos por pastas ou arraste tudo pela interface.
+5. Clique em **Commit changes**.
+6. Vá para **Configurações > Pages > Build and deployment** e confirme **Deploy from a branch**, branch **main**, diretório **/(root)**.
+7. Depois do check verde em Actions / Pages, acesse:
+   https://vinimoraeeess-rgb.github.io/metodopiernas-gluteos/
+   (Confira o login do seu GitHub: o endereço deve usar o nome *exato* da sua conta e o nome *exato* do repositório.)
+8. A página de vendas será: `.../metodopiernas-gluteos/oferta.html`.
+
+## 3. VSL incluída — como funciona
+
+A pasta `assets` contém **vsl-demostracion-es.mp4**, vídeo demonstrativo em espanhol.
+Ele funciona imediatamente após publicar e evita um player vazio.
+**A VSL final de 47 segundos com a mulher da foto NÃO ESTÁ NESTE ZIP**, porque o MP4 original está somente na sua conta HeyGen. O vídeo demonstrativo não é essa VSL.
+
+Para colocar a VSL REAL e permanente no site:
+- Acesse seu vídeo HeyGen: https://app.heygen.com/videos/330338ebfde711a185b5577f83c6c7b6
+- Exporte o MP4 oficial. A versão gratuita pode conter marca-d'água; obtenha uma exportação autorizada sem marca-d'água se o plano oferecer.
+- Renomeie como **vsl-camila-final.mp4**, envie em **assets/vsl-camila-final.mp4** no mesmo repositório.
+- O site detecta esse arquivo e troca automaticamente o vídeo demonstrativo pela VSL da apresentadora.
+
+## 4. Cakto
+
+Edite `config.js` e substitua `checkoutUrl:''` pelo seu link de checkout real.
+Sem link cadastrado, os botões exibem aviso de modo demonstração.
+Confira e confirme preço e garantias antes de publicar.
+
+## 5. Teste local
+
+Abra `index.html` para navegar pelas perguntas, ou use o servidor local:
+
+    python -m http.server 8000
+
+Abra no navegador `http://localhost:8000/` e depois `http://localhost:8000/oferta.html`.
+
+## Importante
+As imagens de antes/depois e depoimentos vieram de peças de referência enviadas no chat. Valide direitos de uso, veracidade e autorização antes de utilizar como prova de resultados do seu produto. O quiz é uma recomendação de estilo de treino e não substitui avaliação profissional.

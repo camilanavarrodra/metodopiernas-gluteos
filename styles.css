@@ -214,3 +214,42 @@ h1{font-size:clamp(2.35rem,5vw,4.55rem);line-height:1.01;letter-spacing:-.05em;m
   .sticky-inner{justify-content:center}
   .sticky-inner .cta{width:100%}
 }
+
+/* VIDEO PRESENTACIÓN */
+.vsl-section {background: linear-gradient(160deg,#f7ecfb,#fff 74%);padding:55px 0 43px;border-top:1px solid #eee0f3;border-bottom:1px solid #eee0f3}
+.vsl-container {text-align:center;max-width:1000px}
+.vsl-player {background:#190d22;padding:10px;border-radius:28px;box-shadow:0 24px 65px rgba(79,13,103,.22);margin:20px auto 12px;overflow:hidden}
+.vsl-player video {display:block;width:100%;height:auto;aspect-ratio:16/9;background:#190d22;border-radius:20px}
+.vsl-label {font-size:0.79rem;line-height:1.5;color:#706776;max-width:800px;margin:9px auto 22px}
+.vsl-container .cta{width:min(100%,600px)}
+@media(max-width:720px){.vsl-section{padding:35px 0 30px}.vsl-player{padding:5px;border-radius:17px}.vsl-player video{border-radius:12px}.vsl-container .cta{font-size:0.95rem}}
+
+
+/* VSL con foto de la presentadora — sustituir el MP4 cuando exista exportación autorizada */
+.vsl-final{background:radial-gradient(ellipse at 20% 0,#f4e4fc 0%,transparent 60%),linear-gradient(180deg,#fff,#fcf6fd);padding:64px 0 50px}
+.vsl-final .section-title{max-width:850px;margin:0 auto 12px}
+.vsl-final-frame{width:min(100%,520px);margin:24px auto 26px;border:1px solid #e8d6ed;border-radius:26px;background:#fff;padding:14px 14px 12px;box-shadow:0 25px 65px rgba(71,17,92,.19)}
+.vsl-final-header{display:flex;align-items:center;gap:9px;color:#5b355f;letter-spacing:.075em;font-size:.75rem;font-weight:900;padding:2px 5px 13px}
+.vsl-record-icon{width:9px;height:9px;background:#08ae46;border-radius:50%;box-shadow:0 0 0 5px #e3fce9}
+.vsl-duration{margin-left:auto;color:#94839d;letter-spacing:0}
+.vsl-final-player{position:relative;display:flex;justify-content:center;align-items:center;background:#190e1b;border-radius:19px;overflow:hidden;aspect-ratio:9/16;max-height:560px;margin:auto}
+.vsl-final-player video{display:block;width:100%;height:100%;aspect-ratio:9/16;object-fit:contain;border-radius:0;background:#190e1b}
+.vsl-placeholder{position:absolute;inset:0;overflow:hidden}
+.vsl-placeholder img{width:100%;height:100%;object-fit:cover;object-position:center 36%;filter:brightness(.65)}
+.vsl-placeholder-text{position:absolute;left:20px;right:20px;bottom:32px;color:white;display:flex;flex-direction:column;gap:6px;text-shadow:0 2px 8px #0006;text-align:center}
+.vsl-placeholder-text strong{font-size:1.55rem;line-height:1.1}
+.vsl-placeholder-text span{font-size:.93rem;font-weight:700;color:#f4eaff}
+.vsl-small-text{margin:12px 4px 3px;color:#7a6f81;font-size:.78rem;font-weight:700}
+.vsl-final .cta{width:min(100%,540px)}
+@media(max-width:720px){.vsl-final{padding:34px 0 28px}.vsl-final-frame{max-width:390px;padding:9px 9px 7px;border-radius:18px}.vsl-final-player{border-radius:12px;max-height:530px}}
+
+/* VSL estable para GitHub Pages */
+.vsl-final-player{aspect-ratio:16 / 9;max-height:none;max-width:100%;width:100%;border-radius:17px}
+.vsl-final-player video{aspect-ratio:16 / 9;width:100%;height:auto;object-fit:contain}
+.vsl-final-frame{width:min(100%,790px)}
+.vsl-final-player.is-portrait{aspect-ratio:9 / 16;max-height:610px;width:min(100%,370px)}
+.vsl-final-player.is-portrait video{aspect-ratio:9 / 16;height:100%}
+.vsl-small-text{line-height:1.5}
+@media(max-width:720px){.vsl-final-player.is-portrait{max-height:530px;width:min(100%,310px)}}
+
+button.cta{border:0;cursor:pointer}button.cta:disabled{opacity:.53;cursor:not-allowed;transform:none;box-shadow:none}

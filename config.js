@@ -1,7 +1,7 @@
 window.SITE_CONFIG={
   checkoutUrl:'',
   productPrice:'R$ 39,90',
-  oldPrice:'De R$ 197,90 por',
+  oldPrice:'Acceso al programa',
   priceCaption:'Pago único · acceso digital inmediato',
   supportUrl:'',
   countdownMinutes:0,
