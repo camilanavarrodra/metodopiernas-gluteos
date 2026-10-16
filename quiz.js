@@ -15,7 +15,7 @@
     start: {
       title: 'Tu oferta ideal es: Empezar fácil y con foco',
       desc: 'Una ruta clara para comenzar sin sentirte abrumada.',
-      bullets: ['Plan simple', 'En casa', 'Acceso por 34.90']
+      bullets: ['Plan simple', 'En casa', 'Acceso por US$ 6.90']
     },
     shape: {
       title: 'Tu oferta ideal es: Más firmeza y constancia',
@@ -25,7 +25,7 @@
     fast: {
       title: 'Tu oferta ideal es: Entrar hoy y aprovechar la promo',
       desc: 'Vimos que encajas muy bien con una propuesta directa y práctica.',
-      bullets: ['Acceso inmediato', 'Enfoque en piernas y glúteos', 'Acceso por 34.90']
+      bullets: ['Acceso inmediato', 'Enfoque en piernas y glúteos', 'Acceso por US$ 6.90']
     }
   };
 

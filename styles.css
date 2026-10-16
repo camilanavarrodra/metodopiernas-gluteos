@@ -106,3 +106,45 @@ img{display:block;max-width:100%}
   .sales-page .vsl-clean .vsl-shell { width: min(100%,390px); padding: 8px; }
   .sales-page .vsl-clean #vsl-camila-player { max-height: none; }
 }
+
+/* Cores do cronômetro e botões de destaque */
+.sales-page #timer-top,
+.sales-page #timer,
+.sales-page #timer2 {color:#c51832!important;font-variant-numeric:tabular-nums;}
+.sales-page #timer-top {background:#fff3f4;border:2px solid #ffb1bb;
+ border-radius:14px;padding:8px 14px;box-shadow:0 6px 14px rgba(0,0,0,.1);}
+.sales-page .countdown-top-inner {gap:12px;}
+.sales-page .vsl-photo-card {position:relative;width:min(100%,350px);
+ margin:0 auto 20px;padding:8px;background:#fff;border:1px solid #e8d5ef;
+ border-radius:25px;overflow:hidden;box-shadow:0 18px 38px rgba(85,14,101,.15);}
+.sales-page .vsl-photo-card img {display:block;width:100%;height:auto;
+ aspect-ratio:1/1;object-fit:cover;object-position:center;border-radius:18px;}
+.sales-page .vsl-photo-caption {position:absolute;left:20px;right:20px;bottom:20px;
+ display:grid;gap:4px;border-radius:15px;padding:12px;background:rgba(43,18,53,.86);color:#fff;
+ text-align:center;backdrop-filter:blur(8px);}
+.sales-page .vsl-photo-caption span{font-size:11px;font-weight:900;letter-spacing:.12em;}
+.sales-page .vsl-photo-caption strong{font-size:16px;letter-spacing:.04em;}
+.sales-page .vsl-clean .container>.cta{display:flex;width:min(100%,420px);margin:0 auto 10px;}
+.sales-page .countdown-buy,
+.sales-page .hero-lite .cta-big,
+.sales-page .offer-right .cta-big,
+.sales-page .sticky-buy .cta,
+.sales-page .vsl-clean .pulse-cta{
+ animation:pulsePurchase 1.85s ease-in-out infinite;transform-origin:center center;
+}
+@keyframes pulsePurchase{
+  0%,100% {transform:scale(1);box-shadow:0 11px 23px rgba(8,166,61,.25);}
+  50% {transform:scale(1.035);box-shadow:0 13px 31px rgba(8,166,61,.42);}
+}
+.sales-page a.cta:hover,.sales-page .countdown-buy:hover{
+ animation-play-state:paused;transform:scale(1.015);
+}
+@media(prefers-reduced-motion:reduce){
+ .sales-page .countdown-buy,.sales-page .hero-lite .cta-big,
+ .sales-page .offer-right .cta-big,.sales-page .sticky-buy .cta,
+ .sales-page .vsl-clean .pulse-cta{animation:none!important;}
+}
+@media(max-width:600px){
+ .sales-page #timer-top{padding:7px 9px;font-size:25px;}
+ .sales-page .vsl-photo-card{width:min(100%,325px);}
+}
