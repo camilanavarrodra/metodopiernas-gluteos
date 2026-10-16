@@ -6,10 +6,10 @@
   <meta name="theme-color" content="#6f138b">
   <title>Oferta personalizada | Piernas & Glúteos</title>
   <meta name="description" content="Oferta personalizada para piernas y glúteos: 4 semanas, en casa, acceso inmediato.">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=vsl-portrait-fix-20261016">
   <script src="config.js" defer></script>
   <script src="oferta.js" defer></script>
-  <script src="vsl-loader.js" defer></script>
+  <script src="vsl-loader.js?v=vsl-portrait-fix-20261016" defer></script>
 </head>
 <body class="sales-page">
   <div class="announcement">TU OFERTA PERSONALIZADA · ACCESO DIGITAL</div>
@@ -69,8 +69,10 @@
           <span class="eyebrow">MENSAJE RÁPIDO DE CAMILA NAVARRO</span>
           <h2>Mira esta presentación antes de comprar.</h2>
         </div>
-        <div class="vsl-shell">
-          <video id="vsl-camila-player" controls playsinline preload="metadata" poster="assets/vsl-camila-poster.png" aria-label="Presentación de Camila Navarro">
+        <div class="vsl-shell vsl-portrait-card" style="width: min(100%, 364px); max-width: 364px; margin: 0 auto 20px; padding: 9px; overflow: hidden; border-radius: 24px;">
+          <video id="vsl-camila-player" controls playsinline preload="metadata" width="720" height="1280"
+            style="display: block; width: 100%; height: auto; max-height: 660px; aspect-ratio: 9 / 16; object-fit: contain; object-position: center center; margin: 0 auto; border-radius: 16px; background: #150a1a;"
+            poster="assets/vsl-camila-poster.png" aria-label="Presentación de Camila Navarro">
             <source src="assets/vsl-camila-final.mp4" type="video/mp4">
           </video>
           <div class="vsl-placeholder" id="vsl-placeholder" hidden>
