@@ -1,0 +1,50 @@
+name: Publicar VSL natural corrigida
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/vsl-natural-v4.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do site
+        uses: actions/checkout@v4
+      - name: Buscar video tratado e validar
+        env:
+          VIDEO_URL: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3JLzDbEEfq6UBxVOWEVHmfl7suN/a232a99a-236f-460b-a827-6245644a8156.mp4'
+        run: |
+          set -euo pipefail
+          mkdir -p assets
+          curl --fail --location --retry 3 --silent --show-error -o assets/vsl-camila-natural-v4.mp4 "$VIDEO_URL"
+          FILE_SIZE=$(stat -c%s assets/vsl-camila-natural-v4.mp4)
+          test "$FILE_SIZE" -gt 5000000
+          test "$FILE_SIZE" -lt 95000000
+          file assets/vsl-camila-natural-v4.mp4 | grep -E 'ISO Media|MPEG-4|MP4'
+      - name: Substituir fonte do player
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path("oferta.html")
+          h=p.read_text(encoding="utf-8")
+          new="assets/vsl-camila-natural-v4.mp4"
+          assert 'id="camila-vsl"' in h, "Player da Camila não encontrado"
+          assert "US$ 6.90" in h, "Preço não corresponde ao plano"
+          for old in ["assets/vsl-camila-final.mp4", "assets/vsl-camila-tratada.mp4"]:
+              h=h.replace(old,new)
+          assert new in h
+          h=h.replace("styles.css?v=vsl-original-preservado-v3","styles.css?v=vsl-natural-v4")
+          h=h.replace("oferta.js?v=vsl-original-preservado-v3","oferta.js?v=vsl-natural-v4")
+          p.write_text(h,encoding="utf-8")
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/vsl-camila-natural-v4.mp4 oferta.html
+          git commit -m 'Publicar VSL com rosto natural e marcas atenuadas'
+          git push
