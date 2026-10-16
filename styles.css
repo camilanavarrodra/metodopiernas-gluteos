@@ -53,3 +53,4 @@ img{display:block;max-width:100%}
 @media (max-width: 560px){.container{width:min(100% - 18px,1120px)}.quiz-main-card,.quiz-result-card,.vsl-shell,.t-card,.mini-proof-card,.offer-box,.quiz-side-copy{padding:18px}.quiz-side-copy h3{font-size:22px}.announcement{font-size:11px;padding:9px}.quiz-intro h1,.hero-lite h1{font-size:2rem}.mini-copy,.hero-short,.question-sub,.t-card p,.quiz-side-copy p{font-size:16px}.cta,.ghost{width:100%}.actions,.cta-group{flex-direction:column}.floating-tag{right:16px;top:16px;font-size:11px;padding:8px 10px}}
 
 .proof-note{font-size:12px;color:#796b85;text-align:center;margin:12px 0 0;line-height:1.4}
+[hidden] { display: none !important; }

@@ -51,7 +51,7 @@
 
   const render = () => {
     const q = questions[idx];
-    step.textContent = `${String(idx + 1).padStart(2,'0')} / ${String(questions.length).padStart(2,'0')}`;
+    if (step) step.textContent = `${String(idx + 1).padStart(2,'0')} / ${String(questions.length).padStart(2,'0')}`;
     bar.style.width = `${((idx + 1) / questions.length) * 100}%`;
     qt.textContent = q.t;
     qs.textContent = q.s;
