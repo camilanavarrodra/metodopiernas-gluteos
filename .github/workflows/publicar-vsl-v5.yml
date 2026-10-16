@@ -1,0 +1,49 @@
+name: Publicar VSL sem marcas visíveis v5
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publicar-vsl-v5.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publicar-vsl:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obter versão do site
+        uses: actions/checkout@v4
+      - name: Baixar e validar a gravação corrigida
+        env:
+          VIDEO_SOURCE: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3JLzDbEEfq6UBxVOWEVHmfl7suN/4e15614d-99b1-4672-8c7b-77425209e68f.mp4'
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --silent --show-error \
+            -o assets/vsl-camila-sem-marcas-v5.mp4 "$VIDEO_SOURCE"
+          SIZE="$(stat -c%s assets/vsl-camila-sem-marcas-v5.mp4)"
+          test "$SIZE" -gt 5000000
+          test "$SIZE" -lt 95000000
+          file assets/vsl-camila-sem-marcas-v5.mp4 | grep -E 'ISO Media|MPEG-4|MP4'
+      - name: Atualizar VSL e manter o restante da oferta
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path("oferta.html")
+          old=p.read_text(encoding="utf-8")
+          assert 'id="camila-vsl"' in old, "Player nao encontrado"
+          assert "US$ 6.90" in old, "Valor alterado inesperadamente"
+          current="assets/vsl-camila-natural-v4.mp4"
+          assert current in old, "A fonte anterior da VSL mudou"
+          new=old.replace(current,"assets/vsl-camila-sem-marcas-v5.mp4")
+          new=new.replace("styles.css?v=vsl-natural-v4","styles.css?v=vsl-sem-marcas-v5")
+          new=new.replace("oferta.js?v=vsl-natural-v4","oferta.js?v=vsl-sem-marcas-v5")
+          p.write_text(new,encoding="utf-8")
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/vsl-camila-sem-marcas-v5.mp4 oferta.html
+          git commit -m 'Trocar VSL por versão restaurada sem logos visíveis'
+          git push
