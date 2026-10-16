@@ -73,3 +73,36 @@ img{display:block;max-width:100%}
   .countdown-digits{font-size:29px}
   .countdown-buy{padding:10px 11px;font-size:10px;max-width:125px;line-height:1.2}
 }
+
+/* Retrato VSL: manter imagem integral, sem ampliação ou recortes */
+.sales-page .vsl-clean .vsl-shell {
+  width: min(100%, 442px);
+  max-width: 442px;
+  margin: 0 auto 20px;
+  padding: 10px;
+  overflow: visible;
+  border-radius: 24px;
+}
+.sales-page .vsl-clean #vsl-camila-player,
+.sales-page .vsl-clean #vsl-placeholder,
+.sales-page .vsl-clean #vsl-placeholder img {
+  width: 100%;
+  max-width: 100%;
+  max-height: none;
+  aspect-ratio: 9 / 16;
+  object-fit: contain;
+  object-position: center;
+  margin-inline: auto;
+  background-color: #120a18;
+  border-radius: 16px;
+}
+.sales-page .vsl-clean #vsl-camila-player { display: block; height: auto; }
+.sales-page .vsl-clean #vsl-placeholder { position: relative; overflow: hidden; }
+.sales-page .vsl-clean #vsl-placeholder img { display: block; height: 100%; }
+.sales-page .vsl-clean #vsl-placeholder[hidden],
+.sales-page .vsl-clean #vsl-camila-player[hidden] { display: none !important; }
+.sales-page .vsl-clean .container > .cta { display: flex; width: min(100%,442px); margin: 18px auto 0; }
+@media (max-width: 560px) {
+  .sales-page .vsl-clean .vsl-shell { width: min(100%,390px); padding: 8px; }
+  .sales-page .vsl-clean #vsl-camila-player { max-height: none; }
+}
