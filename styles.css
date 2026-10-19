@@ -337,3 +337,123 @@ img{display:block;max-width:100%}
   .new-minimal .nm-benefit{padding:12px 5px;}
   .new-minimal .nm-benefit span{font-size:10px;}
 }
+
+/* v7 - Urgencia visual honesta + CTA fijo siempre visible */
+body.sales-page.new-minimal {
+  padding-bottom: calc(96px + env(safe-area-inset-bottom)) !important;
+}
+.new-minimal .nm-urgency-box {
+  padding: 17px 16px 16px;
+  text-align: center;
+  background: #fffafa;
+  border-bottom: 1px solid #f0d3dc;
+}
+.new-minimal .nm-urgency-box p {
+  margin: 0 0 7px;
+  color: #241526;
+  font-size: clamp(13px, 3.6vw, 17px);
+  font-weight: 950;
+  line-height: 1.25;
+}
+.new-minimal .nm-urgency-box strong {
+  display: block;
+  color: #d11236;
+  font-size: clamp(18px, 5vw, 23px);
+  font-weight: 1000;
+  line-height: 1.1;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+.new-minimal .nm-urgency-box > span {
+  display: block;
+  margin-top: 9px;
+  color: #4b344e;
+  font-size: 14px;
+  font-weight: 700;
+}
+.new-minimal .nm-urgency-box b { color: #d11236; font-weight: 950; }
+.new-minimal .nm-sticky-buy {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 250;
+  background: rgba(255,255,255,.97);
+  border-top: 1px solid #e5cce9;
+  box-shadow: 0 -6px 24px rgba(55,21,65,.14);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.new-minimal .nm-sticky-buy-inner {
+  width: min(100%, 640px);
+  margin: 0 auto;
+  padding: 10px 13px calc(10px + env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+.new-minimal .nm-sticky-buy__info {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-width: 93px;
+}
+.new-minimal .nm-sticky-buy__info span {
+  color: #6b5d71;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .03em;
+}
+.new-minimal .nm-sticky-buy__info strong {
+  color: #d11236;
+  font-size: clamp(21px,6vw,28px);
+  font-weight: 1000;
+  white-space: nowrap;
+  line-height: 1.1;
+}
+.new-minimal .nm-sticky-buy__button {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 54px;
+  padding: 12px 15px;
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: linear-gradient(180deg,#09c953,#009c39);
+  color: #fff;
+  font-size: clamp(13px,3.6vw,18px);
+  font-weight: 1000;
+  line-height: 1.1;
+  text-align: center;
+  box-shadow: 0 10px 23px rgba(0,168,65,.28);
+}
+@keyframes nm-pulse-strong {
+  0%,100% { transform: scale(1); box-shadow: 0 9px 22px rgba(0,169,67,.24); }
+  50% { transform: scale(1.035); box-shadow: 0 11px 30px rgba(0,169,67,.43), 0 0 0 7px rgba(0,169,67,.08); }
+}
+.new-minimal .nm-main-cta,
+.new-minimal .nm-top-cta,
+.new-minimal .nm-sticky-buy__button {
+  animation: nm-pulse-strong 1.45s ease-in-out infinite;
+  transform-origin: center;
+}
+.new-minimal .nm-main-cta:hover,
+.new-minimal .nm-top-cta:hover,
+.new-minimal .nm-sticky-buy__button:hover {
+  animation-play-state: paused;
+  filter: brightness(1.03);
+}
+@media (max-width: 390px) {
+  .new-minimal .nm-sticky-buy-inner { gap: 9px; padding-inline: 10px; }
+  .new-minimal .nm-sticky-buy__info { min-width: 85px; }
+  .new-minimal .nm-sticky-buy__info span { font-size: 9px; }
+  .new-minimal .nm-sticky-buy__button { min-height: 52px; padding: 10px 9px; font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .new-minimal .nm-main-cta,
+  .new-minimal .nm-top-cta,
+  .new-minimal .nm-sticky-buy__button { animation: none !important; }
+}
