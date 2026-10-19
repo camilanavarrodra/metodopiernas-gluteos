@@ -29,6 +29,16 @@
     }
   };
 
+  const floatAction = document.getElementById('quizFloatAction');
+  const mainCard = document.querySelector('.quiz-main-card');
+  const setStage = (stage) => {
+    document.body.setAttribute('data-quiz-stage',stage);
+    if (floatAction) floatAction.textContent = stage === 'result' ? 'QUIERO MI PLAN →' : 'DESCUBRIR MI PLAN →';
+    if (stage !== 'intro' && mainCard && window.matchMedia('(max-width: 760px)').matches) {
+      mainCard.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+  };
+
   const start = document.getElementById('start');
   const intro = document.getElementById('intro');
   const quest = document.getElementById('quest');
@@ -60,11 +70,24 @@
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'option' + (answers[idx] === i ? ' active' : '');
-      button.textContent = opt;
+      const icon = document.createElement('span');
+      icon.className = 'quiz-choice-icon';
+      icon.textContent = '✓';
+      icon.setAttribute('aria-hidden','true');
+      const label = document.createElement('span');
+      label.className = 'quiz-option-text';
+      label.textContent = opt;
+      const arrow = document.createElement('span');
+      arrow.className = 'quiz-option-arrow';
+      arrow.textContent = '›';
+      arrow.setAttribute('aria-hidden','true');
+      button.append(icon,label,arrow);
+      button.setAttribute('aria-pressed',String(answers[idx] === i));
       button.onclick = () => {
         answers[idx] = i;
         [...opts.children].forEach(el => el.classList.remove('active'));
         button.classList.add('active');
+        [...opts.children].forEach(el => el.setAttribute('aria-pressed',String(el === button)));
         next.disabled = false;
       };
       opts.appendChild(button);
@@ -84,6 +107,7 @@
     const p = chooseProfile();
     quest.classList.add('hidden');
     result.classList.remove('hidden');
+    setStage('result');
     rt.textContent = p.title;
     rd.textContent = p.desc;
     rl.innerHTML = p.bullets.map(x => `<li>${x}</li>`).join('');
@@ -94,6 +118,7 @@
   start?.addEventListener('click', () => {
     intro.classList.add('hidden');
     quest.classList.remove('hidden');
+    setStage('questions');
     render();
   });
 
@@ -120,9 +145,14 @@
     result.classList.add('hidden');
     intro.classList.remove('hidden');
     quest.classList.add('hidden');
+    setStage('intro');
   });
 
   seeOffer?.addEventListener('click', () => {
     window.location.href = './';
+  });
+  floatAction?.addEventListener('click', () => {
+    if (document.body.getAttribute('data-quiz-stage') === 'result') window.location.href = './';
+    else start?.click();
   });
 })();
