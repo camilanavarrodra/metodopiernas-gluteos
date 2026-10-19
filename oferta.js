@@ -36,31 +36,5 @@
   const tickHandle = setInterval(updateTimer, 500);
   updateTimer();
 
-  const video = document.getElementById('camila-vsl');
-  const soundButton = document.getElementById('camila-sound');
-  const playError = document.getElementById('camila-play-error');
-  if (video) {
-    // Mobile browsers usually allow autoplay only while muted.
-    video.defaultMuted = true;
-    video.muted = true;
-    const tryAutoplay = () => {
-      const attempt = video.play();
-      if (attempt && typeof attempt.catch === 'function') {
-        attempt.catch(() => {
-          if (playError) playError.hidden = false;
-        });
-      }
-    };
-    video.addEventListener('playing', () => { if (playError) playError.hidden = true; });
-    video.addEventListener('loadedmetadata', tryAutoplay, {once: true});
-    if (video.readyState >= 1) tryAutoplay();
-
-    soundButton?.addEventListener('click', () => {
-      video.muted = !video.muted;
-      soundButton.textContent = video.muted ? '🔊 ACTIVAR SONIDO' : '🔇 SILENCIAR';
-      soundButton.setAttribute('aria-pressed', String(!video.muted));
-      if (video.paused) tryAutoplay();
-    });
-  }
 
 })();

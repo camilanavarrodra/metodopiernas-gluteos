@@ -275,3 +275,65 @@ img{display:block;max-width:100%}
   font-size:13px;font-weight:950;
 }
 .new-minimal .nm-video-error{font-size:12px;color:#715b7b;margin:8px 0;}
+
+/* v6 — página sem VSL: gatilhos curtos, diretos e mobile-first */
+.new-minimal .nm-copy-section {
+  padding: 31px 17px 30px;
+  text-align:center;
+  background:linear-gradient(160deg,#fff8fb 0%,#fbf2ff 100%);
+  border-top:1px solid #eaddec;
+  border-bottom:1px solid #eaddec;
+}
+.new-minimal .nm-copy-alert {
+  display:inline-block;
+  padding:8px 15px;border-radius:999px;
+  background:#fff0f2;color:#d01636;
+  font-size:12px;font-weight:1000;letter-spacing:.08em;
+}
+.new-minimal .nm-copy-section h2 {
+  margin:14px 0 10px;
+  font-size:clamp(30px,7.6vw,45px);
+  font-weight:1000;line-height:1.06;
+  letter-spacing:-.035em;
+}
+.new-minimal .nm-copy-section h2 em,
+.new-minimal .nm-results h2 em {
+  color:#009e42;font-style:normal;
+}
+.new-minimal .nm-copy-kicker {
+  color:#5f4669;font-size:clamp(13px,3.4vw,16px);
+  font-weight:900;max-width:440px;
+  margin:0 auto 20px;line-height:1.45;
+}
+.new-minimal .nm-benefit-grid {
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:8px;max-width:540px;margin:0 auto 19px;
+}
+.new-minimal .nm-benefit {
+  background:#fff;border:1px solid #ead7ef;border-radius:17px;
+  box-shadow:0 7px 19px rgba(80,15,111,.07);
+  padding:15px 6px 13px;
+}
+.new-minimal .nm-benefit strong {
+  display:block;color:#6b1382;
+  font-size:clamp(13px,3.5vw,16px);font-weight:1000;
+  line-height:1.2;margin:0 0 7px;
+}
+.new-minimal .nm-benefit span {
+  font-size:11px;line-height:1.4;
+  display:block;color:#6f6376;font-weight:700;
+}
+.new-minimal .nm-copy-push {
+  margin:4px auto 16px;max-width:430px;
+  font-size:clamp(15px,4vw,18px);line-height:1.32;
+  font-weight:750;color:#37213f;
+}
+.new-minimal .nm-copy-push strong {color:#c81232;}
+.new-minimal .nm-copy-cta {margin:0 auto;width:100%;font-size:clamp(13px,3.5vw,17px);}
+.new-minimal .nm-results h2{font-size:clamp(21px,4.8vw,28px);}
+@media(max-width:390px){
+  .new-minimal .nm-copy-section{padding-inline:12px;}
+  .new-minimal .nm-benefit-grid{gap:6px;}
+  .new-minimal .nm-benefit{padding:12px 5px;}
+  .new-minimal .nm-benefit span{font-size:10px;}
+}
