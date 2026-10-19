@@ -123,6 +123,6 @@
   });
 
   seeOffer?.addEventListener('click', () => {
-    window.location.href = 'oferta.html';
+    window.location.href = './';
   });
 })();

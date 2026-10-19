@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#6f138b">
+  <title>Quiz | Piernas & Glúteos</title>
+  <meta name="description" content="Descubre tu oferta personalizada para piernas y glúteos en 4 semanas.">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js" defer></script>
+  <script src="quiz.js" defer></script>
+</head>
+<body class="quiz-body">
+  <div class="announcement">OFERTA PERSONALIZADA · HOY · US$ 6.90</div>
+
+  <header class="simple-top">
+    <div class="container simple-top-inner">
+      <div class="brand-mini">
+        <span class="brand-dot"></span>
+        <div>
+          <strong>PIERNAS & GLÚTEOS</strong>
+          <small>Método de 4 semanas</small>
+        </div>
+      </div>
+      <a class="nav-cta" href="./">Ver oferta</a>
+    </div>
+  </header>
+
+  <main class="container quiz-layout">
+    <section class="quiz-main-card">
+      <div id="intro" class="quiz-intro">
+        <span class="eyebrow">QUIZ RÁPIDO · 9 PREGUNTAS</span>
+        <h1>Descubre <span class="marker">tu oferta ideal</span> para piernas y glúteos.</h1>
+        <p class="mini-copy">En casa · 20 min · 4 semanas</p>
+        <div class="bullet-row">
+          <span>✓ Oferta personalizada</span>
+          <span>✓ Acceso inmediato</span>
+          <span>✓ Válida por poco tiempo</span>
+        </div>
+        <button id="start" class="cta cta-big" type="button">QUIERO MI OFERTA →</button>
+      </div>
+
+      <div id="quest" class="hidden">
+        <div class="progress-top">
+          <span>Tu diagnóstico</span>
+        </div>
+        <div class="progress"><span id="bar"></span></div>
+        <h2 id="qt" class="question-title"></h2>
+        <p id="qs" class="question-sub"></p>
+        <div id="opts" class="options"></div>
+        <div class="actions actions-between">
+          <button id="prev" class="ghost" type="button">Volver</button>
+          <button id="next" class="cta" type="button" disabled>Continuar</button>
+        </div>
+      </div>
+    </section>
+
+    <aside class="quiz-side-card">
+      <img src="assets/before-after-main.png" alt="Antes y después">
+      <div class="quiz-side-copy">
+        <span class="eyebrow">RESULTADO VISUAL</span>
+        <h3>Una oferta hecha para tu objetivo.</h3>
+        <p>Responde y desbloquea una recomendación + acceso especial de hoy.</p>
+      </div>
+    </aside>
+
+    <section id="result" class="quiz-result-card hidden">
+      <span class="eyebrow">TU OFERTA PERSONALIZADA</span>
+      <h2 id="rt" class="question-title"></h2>
+      <p id="rd" class="question-sub"></p>
+      <ul id="rl" class="result-list"></ul>
+      <div class="result-price-line">
+        
+        <strong>US$ 6.90</strong>
+        <small>pago único</small>
+      </div>
+      <div class="actions actions-wrap">
+        <button id="restart" class="ghost" type="button">Repetir</button>
+        <button id="seeOffer" class="cta cta-big" type="button">DESBLOQUEAR MI OFERTA →</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
