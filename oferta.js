@@ -5,6 +5,19 @@
     a.setAttribute('href', checkout);
     a.setAttribute('target', '_blank');
     a.setAttribute('rel', 'noopener noreferrer');
+    // Clique no checkout não significa checkout iniciado nem compra confirmada.
+    // Eventos padrão InitiateCheckout/Purchase devem vir da plataforma de pagamento.
+    a.addEventListener('click', () => {
+      const key = 'piernas_gluteos_pixel_checkout_click_v1';
+      if (typeof window.fbq !== 'function') return;
+      try {
+        if (sessionStorage.getItem(key) === '1') return;
+      } catch (_) {}
+      if (window.__piernasCheckoutClickTracked) return;
+      window.fbq('trackCustom', 'CheckoutClick', {destination: 'kiwify'});
+      window.__piernasCheckoutClickTracked = true;
+      try { sessionStorage.setItem(key, '1'); } catch (_) {}
+    });
   });
 
   const personalLine = document.getElementById('personalLine');
