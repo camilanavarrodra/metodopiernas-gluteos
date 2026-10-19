@@ -58,8 +58,25 @@
   let idx = 0;
   let answers = new Array(questions.length).fill(null);
 
+  // Eventos de funil: cada etapa é contabilizada apenas uma vez por sessão.
+  // O evento padrão Lead permanece reservado à conclusão do quiz.
+  const trackedCustomEvents = new Set();
+  function trackCustomOnce(eventName, params = {}) {
+    if (typeof window.fbq !== 'function' || trackedCustomEvents.has(eventName)) return;
+    const key = 'piernas_gluteos_pixel_' + eventName.toLowerCase() + '_v1';
+    try {
+      if (sessionStorage.getItem(key) === '1') return;
+    } catch (_) {
+      // Alguns navegadores bloqueiam armazenamento; o controle em memória continua.
+    }
+    window.fbq('trackCustom', eventName, params);
+    trackedCustomEvents.add(eventName);
+    try { sessionStorage.setItem(key, '1'); } catch (_) {}
+  }
+
   const render = () => {
     const q = questions[idx];
+    if (idx === 4) trackCustomOnce('QuizMidpoint', {step_reached: 5, questions_total: questions.length});
     if (step) step.textContent = `${idx + 1} DE ${questions.length}`;
     next.textContent = idx === questions.length - 1 ? 'VER MI RECOMENDACIÓN →' : 'SEGUIR →';
     bar.style.width = `${((idx + 1) / questions.length) * 100}%`;
@@ -125,6 +142,7 @@
         window.__quizLeadTracked = true;
       }
     }
+    trackCustomOnce('QuizComplete', {questions_total: questions.length});
     rt.textContent = '¡ENCONTRAMOS TU ENFOQUE!';
     rd.textContent = 'Abriendo tu plan…';
     rl.innerHTML = '';
@@ -142,6 +160,7 @@
   };
 
   start?.addEventListener('click', () => {
+    trackCustomOnce('QuizStart', {questions_total: questions.length});
     intro.classList.add('hidden');
     quest.classList.remove('hidden');
     setStage('questions');
