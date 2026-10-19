@@ -163,3 +163,12 @@
 .quiz-neon .question-title{font-size:clamp(28px,7.4vw,38px);margin-bottom:19px}
 .quiz-neon .option{min-height:65px}
 }
+
+/* Landing do quiz — copy curta: problema, objetivo e ação */
+.quiz-neon .quiz-intro h1{max-width:660px;font-size:clamp(35px,4.65vw,61px);letter-spacing:-.042em;line-height:1.055}
+.quiz-neon .quiz-intro h1 em{color:#b9ff2f;text-shadow:0 0 26px rgba(156,255,42,.2)}
+.quiz-neon .quiz-invite{font-size:clamp(16px,2vw,20px);max-width:500px;color:#ebd9f1;line-height:1.45;margin-bottom:25px}
+.quiz-neon .quiz-invite strong{color:#fff}
+.quiz-neon .quiz-intro .quiz-action-main{min-height:63px;box-shadow:0 9px 26px rgba(149,248,27,.4)}
+.quiz-neon .quiz-under-action{color:#e2c4e8;font-weight:850;letter-spacing:.075em}
+@media(max-width:760px){.quiz-neon .quiz-intro h1{font-size:clamp(32px,8.1vw,46px)}.quiz-neon .quiz-invite{font-size:16px;margin-bottom:21px}}
