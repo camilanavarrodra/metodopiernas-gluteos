@@ -1,5 +1,5 @@
 window.SITE_CONFIG = {
-  checkoutUrl: 'https://pay.cakto.com.br/4nit5km_1204793',
+  checkoutUrl: 'https://pay.kiwify.com/BSJJ1f7',
   productPrice: 'US$ 6.90',
   priceCaption: 'Acceso digital',
 };
