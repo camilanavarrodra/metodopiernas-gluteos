@@ -8,9 +8,14 @@
   });
 
   const personalLine = document.getElementById('personalLine');
-  const saved = localStorage.getItem('quiz_offer_line');
-  if (personalLine && saved) {
-    personalLine.textContent = saved.replace(/(?:US\$\s*)?(?:29|34)\.90/g, 'US$ 6.90');
+  try {
+    const saved = localStorage.getItem('quiz_offer_line');
+    if (personalLine && saved && saved.startsWith('TU ENFOQUE: ')) {
+      personalLine.textContent = saved;
+      personalLine.hidden = false;
+    }
+  } catch (_) {
+    // Sin almacenamiento, mostramos la oferta general.
   }
 
   // Temporizador de sesión: conserva su fin al recargar, no reinicia en 00:00

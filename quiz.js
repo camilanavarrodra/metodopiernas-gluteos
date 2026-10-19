@@ -1,31 +1,30 @@
 (() => {
   const questions = [
-    { t: '¿Qué quieres mejorar más ahora?', s: 'Elige lo que más te importa.', o: ['Glúteos más trabajados', 'Piernas más firmes', 'Ambos por igual'] },
-    { t: '¿Dónde prefieres entrenar?', s: 'Queremos adaptarnos a tu rutina.', o: ['En casa', 'En cualquier lugar', 'Tengo poco tiempo y necesito algo práctico'] },
-    { t: '¿Cuánto tiempo puedes dedicar?', s: 'Sé realista para personalizar tu oferta.', o: ['10 a 20 min', '20 a 30 min', 'Lo que sea más fácil de sostener'] },
-    { t: '¿Qué te frena hoy?', s: 'La idea es darte un camino viable.', o: ['Falta de constancia', 'No saber por dónde empezar', 'Rutinas largas y aburridas'] },
-    { t: '¿Cuál es tu nivel actual?', s: 'Esto nos ayuda a ajustar el enfoque.', o: ['Estoy empezando', 'Ya intenté antes', 'Quiero retomar ya'] },
-    { t: '¿Qué tipo de cambio te motiva más?', s: 'Piensa en lo que quieres sentir al mirarte.', o: ['Más firmeza', 'Más confianza', 'Más definición'] },
-    { t: '¿Te interesa una opción simple?', s: 'Sin complicaciones ni vueltas.', o: ['Sí, cuanto más simple mejor', 'Sí, si puedo empezar hoy', 'Sí, si me guía paso a paso'] },
-    { t: '¿Qué valoras más en una oferta?', s: 'Tu respuesta activa la propuesta.', o: ['Que sea clara', 'Que se sienta personalizada', 'Que tenga precio accesible'] },
-    { t: '¿Quieres desbloquear tu oferta ahora?', s: 'Estás a un paso de verla.', o: ['Sí, quiero verla', 'Sí, para empezar hoy', 'Sí, si es por tiempo limitado'] }
+    { t: '¿QUÉ QUIERES MEJORAR?', s: 'Elige tu prioridad.', o: ['Glúteos con más forma', 'Piernas con más firmeza', 'Ambas zonas'] },
+    { t: '¿QUÉ TE FRENA HOY?', s: 'Busquemos un comienzo sencillo.', o: ['No sé por dónde empezar', 'Me falta tiempo', 'Me cuesta ser constante'] },
+    { t: '¿DÓNDE TE GUSTA ENTRENAR?', s: 'Que encaje con tu rutina.', o: ['En casa', 'En poco espacio', 'Donde me resulte práctico'] },
+    { t: '¿PUEDES RESERVAR 20 MINUTOS?', s: 'Una sesión breve puede encajar en tu día.', o: ['Sí, cada día', 'Sí, algunos días', 'Quiero intentarlo'] },
+    { t: '¿CUÁL ES TU NIVEL?', s: 'Para saber por dónde empezar.', o: ['Estoy empezando', 'Ya he entrenado antes', 'Quiero retomar'] },
+    { t: '¿QUÉ TE MOTIVA MÁS?', s: 'Elige lo que buscas.', o: ['Más firmeza', 'Más fuerza', 'Ser más constante'] },
+    { t: '¿QUÉ TE AYUDARÍA A SEGUIR?', s: 'Lo simple es más fácil de mantener.', o: ['Guía paso a paso', 'Ejercicios sencillos', 'Rutinas cortas'] },
+    { t: '¿QUÉ NECESITAS PARA EMPEZAR?', s: 'Estamos cerca de tu recomendación.', o: ['Un camino claro', 'Un plan que pueda sostener', 'Una opción accesible'] },
+    { t: '¿LISTA PARA VER TU RECOMENDACIÓN?', s: 'Te mostraremos el enfoque según tus respuestas.', o: ['Sí, muéstramela', 'Sí, quiero empezar', 'Quiero descubrir mi plan'] }
   ];
 
+  // El programa de 4 semanas es el mismo; la recomendación orienta
+  // sobre la prioridad elegida, no promete una rutina creada individualmente.
   const profiles = {
-    start: {
-      title: 'Tu oferta ideal es: Empezar fácil y con foco',
-      desc: 'Una ruta clara para comenzar sin sentirte abrumada.',
-      bullets: ['Plan simple', 'En casa', 'Acceso por US$ 6.90']
+    glutes: {
+      title: 'TU ENFOQUE: GLÚTEOS MÁS FUERTES',
+      desc: 'Un programa de 4 semanas en casa, para empezar con una rutina clara.'
     },
-    shape: {
-      title: 'Tu oferta ideal es: Más firmeza y constancia',
-      desc: 'Un enfoque pensado para sostener el hábito y sentir progreso.',
-      bullets: ['4 semanas', 'Sesiones cortas', 'Oferta disponible']
+    legs: {
+      title: 'TU ENFOQUE: PIERNAS MÁS FIRMES',
+      desc: 'Un programa de 4 semanas en casa, con sesiones cortas y progresivas.'
     },
-    fast: {
-      title: 'Tu oferta ideal es: Entrar hoy y aprovechar la promo',
-      desc: 'Vimos que encajas muy bien con una propuesta directa y práctica.',
-      bullets: ['Acceso inmediato', 'Enfoque en piernas y glúteos', 'Acceso por US$ 6.90']
+    both: {
+      title: 'TU ENFOQUE: PIERNAS Y GLÚTEOS',
+      desc: 'Un programa de 4 semanas en casa para entrenar ambas zonas.'
     }
   };
 
@@ -33,7 +32,7 @@
   const mainCard = document.querySelector('.quiz-main-card');
   const setStage = (stage) => {
     document.body.setAttribute('data-quiz-stage',stage);
-    if (floatAction) floatAction.textContent = stage === 'result' ? 'QUIERO MI PLAN →' : 'DESCUBRIR MI PLAN →';
+    if (floatAction) floatAction.textContent = stage === 'result' ? 'VER PLAN →' : 'QUIERO MI RECOMENDACIÓN →';
     if (stage !== 'intro' && mainCard && window.matchMedia('(max-width: 760px)').matches) {
       mainCard.scrollIntoView({behavior:'smooth',block:'start'});
     }
@@ -61,7 +60,8 @@
 
   const render = () => {
     const q = questions[idx];
-    if (step) step.textContent = `${String(idx + 1).padStart(2,'0')} / ${String(questions.length).padStart(2,'0')}`;
+    if (step) step.textContent = `PREGUNTA ${idx + 1} DE ${questions.length}`;
+    next.textContent = idx === questions.length - 1 ? 'VER MI RECOMENDACIÓN →' : 'SEGUIR →';
     bar.style.width = `${((idx + 1) / questions.length) * 100}%`;
     qt.textContent = q.t;
     qs.textContent = q.s;
@@ -97,10 +97,10 @@
   };
 
   const chooseProfile = () => {
-    const score = answers.reduce((sum, val) => sum + (val ?? 0), 0);
-    if (score <= 7) return profiles.start;
-    if (score <= 12) return profiles.shape;
-    return profiles.fast;
+    // Recomendación transparente: se basa en el objetivo elegido.
+    if (answers[0] === 0) return profiles.glutes;
+    if (answers[0] === 1) return profiles.legs;
+    return profiles.both;
   };
 
   const showResult = () => {
@@ -124,8 +124,8 @@
         window.__quizLeadTracked = true;
       }
     }
-    rt.textContent = '¡TU PLAN ESTÁ LISTO!';
-    rd.textContent = 'Te llevamos ahora a tu plan de 4 semanas…';
+    rt.textContent = '¡ENCONTRAMOS TU ENFOQUE!';
+    rd.textContent = 'Abriendo tu recomendación…';
     rl.innerHTML = '';
     try {
       localStorage.setItem('quiz_offer_line', p.title);

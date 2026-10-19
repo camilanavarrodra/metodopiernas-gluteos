@@ -105,3 +105,30 @@
 .quiz-neon .quiz-floating-button{padding:9px 7px;font-size:11px;}
 }
 @media(prefers-reduced-motion:reduce){.quiz-neon .quiz-action-main,.quiz-neon .quiz-floating-button{animation:none!important;}.quiz-neon .option{transition:none!important;}}
+
+/* Quiz mais direto e menos texto — versão 2 */
+.quiz-neon .quiz-shell{padding-top:17px}
+.quiz-neon .quiz-promo-tag{margin-bottom:11px;font-size:11px;color:#e8c8ed}
+.quiz-neon .quiz-main-card{padding-top:clamp(22px,3.5vw,38px);padding-bottom:clamp(22px,3.5vw,38px)}
+.quiz-neon .quiz-intro h1{font-size:clamp(31px,4.3vw,56px);line-height:1.04;margin:15px 0 11px}
+.quiz-neon .quiz-invite{margin:0 0 14px;font-size:clamp(16px,1.85vw,19px)}
+.quiz-neon .quiz-highlight-chips{margin-bottom:19px}
+.quiz-neon .quiz-under-action{margin-top:9px}
+.quiz-neon .quiz-photo-frame img{max-height:470px}
+.quiz-neon .quiz-visual-note{max-width:420px}
+.quiz-neon .quiz-floating-inner{max-width:530px}
+.quiz-neon .quiz-sale-subrow{margin-top:4px}
+.quiz-neon[data-quiz-stage="result"] .quiz-floating-bar{display:none}
+.quiz-neon .quiz-question-stage .question-title{letter-spacing:-.035em}
+@media(max-width:760px){
+ .quiz-neon .quiz-shell{padding-top:13px}
+ .quiz-neon .quiz-promo-tag{font-size:10px;letter-spacing:.06em}
+ .quiz-neon .quiz-main-card{padding:23px 18px}
+ .quiz-neon .quiz-intro h1{font-size:clamp(29px,8.0vw,42px)}
+ .quiz-neon .quiz-invite{font-size:16px}
+ .quiz-neon .quiz-photo-panel{margin-top:0}
+ .quiz-neon[data-quiz-stage="questions"] .quiz-promo-tag,
+ .quiz-neon[data-quiz-stage="result"] .quiz-promo-tag{display:none}
+ .quiz-neon[data-quiz-stage="questions"] .quiz-visual-note,
+ .quiz-neon[data-quiz-stage="result"] .quiz-visual-note{display:none}
+}
