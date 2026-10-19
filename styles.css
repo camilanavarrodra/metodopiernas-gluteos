@@ -724,3 +724,40 @@ body.sales-page.new-minimal{
 @media(prefers-reduced-motion:reduce){
  .new-minimal .nm-main-cta,.new-minimal .nm-top-cta,.new-minimal .nm-sticky-buy__button{animation:none!important;}
 }
+
+/* v12 — fotos limpas, sem molduras ou legendas, perfis redondos. */
+.new-minimal .nm-main-photo,
+.new-minimal .nm-photo-card{
+  padding:0!important;margin-inline:auto!important;
+  border:0!important;border-radius:0!important;
+  outline:0!important;box-shadow:none!important;
+  background:transparent!important;overflow:hidden!important;
+}
+.new-minimal .nm-main-photo{max-width:470px!important;margin-bottom:21px!important}
+.new-minimal .nm-main-photo img{
+  display:block;width:112%!important;max-width:none!important;
+  margin-left:-6%!important;height:auto!important;
+  border:0!important;border-radius:0!important;
+  object-fit:cover!important;box-shadow:none!important;
+}
+.new-minimal .nm-photo-card img{
+  display:block;width:112%!important;max-width:none!important;
+  height:auto!important;min-height:0!important;
+  margin-left:-6%!important;border:0!important;
+  border-radius:0!important;object-fit:cover!important;
+  object-position:center!important;box-shadow:none!important;
+}
+.new-minimal .nm-photo-caption,
+.new-minimal .nm-photo-disclaimer{display:none!important}
+.new-minimal .nm-avatar{
+  display:block!important;flex:0 0 48px!important;width:48px!important;
+  height:48px!important;object-fit:cover!important;
+  object-position:center 35%!important;border-radius:50%!important;
+  border:2px solid #f39ae5!important;background:#541363!important;
+  box-shadow:0 0 12px #ff5adc45!important;
+}
+.new-minimal .nm-testimonial-person{gap:10px!important}
+@media(max-width:630px){
+ .new-minimal .nm-photos-grid{gap:8px!important}
+ .new-minimal .nm-photo-card img{height:auto!important}
+}
