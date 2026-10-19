@@ -457,3 +457,67 @@ body.sales-page.new-minimal {
   .new-minimal .nm-top-cta,
   .new-minimal .nm-sticky-buy__button { animation: none !important; }
 }
+
+/* v8 - cabeçalho comercial chamativo, sem o rótulo TU SESIÓN */
+.new-minimal .nm-timer-promo {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  padding:10px 12px 12px;
+  background:
+    radial-gradient(circle at 7% 18%,rgba(251,126,212,.28),transparent 35%),
+    linear-gradient(115deg,#540775 0%,#8e0b9b 48%,#5f097e 100%);
+  border-bottom:2px solid rgba(255,127,193,.58);
+  box-shadow:0 7px 22px rgba(72,9,89,.27);
+}
+.new-minimal .nm-promo-headline {
+  color:#fff;
+  width:100%;
+  font-size:clamp(13px,3.8vw,17px);
+  font-weight:1000;
+  text-align:center;
+  line-height:1.1;
+  letter-spacing:.065em;
+  text-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+.new-minimal .nm-promo-action {
+  width:min(100%,380px);
+  display:flex;align-items:center;justify-content:center;
+  gap:22px;
+}
+.new-minimal .nm-timer-promo .nm-time {
+  color:#ff3d58!important;
+  font-size:clamp(31px,8vw,42px);
+  font-weight:1000;
+  line-height:1;
+  letter-spacing:.015em;
+  font-variant-numeric:tabular-nums;
+  text-shadow:0 2px 7px rgba(47,0,51,.28)!important;
+  border:0!important;
+  padding:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.new-minimal .nm-timer-promo .nm-top-cta {
+  min-width:155px;
+  max-width:210px;
+  min-height:43px;
+  padding:11px 17px;
+  background:linear-gradient(180deg,#0bc953 0%,#009d3b 100%);
+  border-radius:100px;
+  font-size:clamp(12px,3.5vw,15px);
+  font-weight:1000;
+  white-space:nowrap;
+  box-shadow:0 9px 21px rgba(0,168,63,.35);
+}
+@media(max-width:390px){
+  .new-minimal .nm-timer-promo{gap:7px;padding:9px 10px 10px;}
+  .new-minimal .nm-promo-action{gap:12px;}
+  .new-minimal .nm-timer-promo .nm-time{font-size:30px;}
+  .new-minimal .nm-timer-promo .nm-top-cta{min-width:146px;padding:10px 13px;font-size:12px;}
+}
+@media(prefers-reduced-motion:reduce){
+  .new-minimal .nm-timer-promo .nm-top-cta{animation:none!important;}
+}
