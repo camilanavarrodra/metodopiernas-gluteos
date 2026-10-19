@@ -108,6 +108,21 @@
     quest.classList.add('hidden');
     result.classList.remove('hidden');
     setStage('result');
+    // Dispara Lead apenas quando as 9 respostas foram concluídas.
+    // Evita contar várias vezes no mesmo navegador e sessão.
+    try {
+      if (!sessionStorage.getItem('piernas_quiz_lead_sent_v1')) {
+        if (typeof window.fbq === 'function') {
+          window.fbq('track', 'Lead');
+          sessionStorage.setItem('piernas_quiz_lead_sent_v1', '1');
+        }
+      }
+    } catch (_) {
+      if (typeof window.fbq === 'function' && !window.__quizLeadTracked) {
+        window.fbq('track', 'Lead');
+        window.__quizLeadTracked = true;
+      }
+    }
     rt.textContent = p.title;
     rd.textContent = p.desc;
     rl.innerHTML = p.bullets.map(x => `<li>${x}</li>`).join('');
