@@ -107,6 +107,7 @@
     const p = chooseProfile();
     quest.classList.add('hidden');
     result.classList.remove('hidden');
+    next.disabled = true;
     setStage('result');
     // Dispara Lead apenas quando as 9 respostas foram concluídas.
     // Evita contar várias vezes no mesmo navegador e sessão.
@@ -123,11 +124,20 @@
         window.__quizLeadTracked = true;
       }
     }
-    rt.textContent = p.title;
-    rd.textContent = p.desc;
-    rl.innerHTML = p.bullets.map(x => `<li>${x}</li>`).join('');
-    localStorage.setItem('quiz_offer_line', p.title);
-    localStorage.setItem('quiz_offer_desc', p.desc);
+    rt.textContent = '¡TU PLAN ESTÁ LISTO!';
+    rd.textContent = 'Te llevamos ahora a tu plan de 4 semanas…';
+    rl.innerHTML = '';
+    try {
+      localStorage.setItem('quiz_offer_line', p.title);
+      localStorage.setItem('quiz_offer_desc', p.desc);
+    } catch (_) {
+      // El bloqueo del almacenamiento no debe impedir el acceso a la oferta.
+    }
+    // Redirige automáticamente, sin un clic adicional.
+    // Breve margen para que el evento Lead del Pixel pueda enviarse.
+    window.setTimeout(() => {
+      window.location.assign('./');
+    }, 750);
   };
 
   start?.addEventListener('click', () => {
