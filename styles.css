@@ -876,3 +876,6 @@ body.sales-page.new-minimal{
   box-shadow:none!important;
 }
 .new-minimal .nm-main-photo figcaption {display:none!important}
+
+/* v15: nova fotografia principal completa, sem corte nem deformação */
+.new-minimal .nm-main-photo img{aspect-ratio:auto!important;object-fit:contain!important;object-position:center!important;transform:none!important;}
