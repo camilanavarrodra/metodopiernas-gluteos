@@ -1,14 +1,14 @@
 (() => {
   const questions = [
-    { t: '¿QUÉ QUIERES MEJORAR?', s: 'Elige tu prioridad.', o: ['Glúteos con más forma', 'Piernas con más firmeza', 'Ambas zonas'] },
-    { t: '¿QUÉ TE FRENA HOY?', s: 'Busquemos un comienzo sencillo.', o: ['No sé por dónde empezar', 'Me falta tiempo', 'Me cuesta ser constante'] },
-    { t: '¿DÓNDE TE GUSTA ENTRENAR?', s: 'Que encaje con tu rutina.', o: ['En casa', 'En poco espacio', 'Donde me resulte práctico'] },
-    { t: '¿PUEDES RESERVAR 20 MINUTOS?', s: 'Una sesión breve puede encajar en tu día.', o: ['Sí, cada día', 'Sí, algunos días', 'Quiero intentarlo'] },
-    { t: '¿CUÁL ES TU NIVEL?', s: 'Para saber por dónde empezar.', o: ['Estoy empezando', 'Ya he entrenado antes', 'Quiero retomar'] },
-    { t: '¿QUÉ TE MOTIVA MÁS?', s: 'Elige lo que buscas.', o: ['Más firmeza', 'Más fuerza', 'Ser más constante'] },
-    { t: '¿QUÉ TE AYUDARÍA A SEGUIR?', s: 'Lo simple es más fácil de mantener.', o: ['Guía paso a paso', 'Ejercicios sencillos', 'Rutinas cortas'] },
-    { t: '¿QUÉ NECESITAS PARA EMPEZAR?', s: 'Estamos cerca de tu recomendación.', o: ['Un camino claro', 'Un plan que pueda sostener', 'Una opción accesible'] },
-    { t: '¿LISTA PARA VER TU RECOMENDACIÓN?', s: 'Te mostraremos el enfoque según tus respuestas.', o: ['Sí, muéstramela', 'Sí, quiero empezar', 'Quiero descubrir mi plan'] }
+    { t: '¿QUÉ QUIERES CAMBIAR?', s: '', o: ['Glúteos con más forma', 'Piernas más firmes', 'Ambos'] },
+    { t: '¿QUÉ TE DETIENE?', s: '', o: ['No sé qué hacer', 'No tengo tiempo', 'No soy constante'] },
+    { t: '¿DÓNDE ENTRENARÍAS?', s: '', o: ['En casa', 'En poco espacio', 'Donde pueda'] },
+    { t: '¿CUÁNTO TIEMPO TIENES?', s: '', o: ['10–20 minutos', '20–30 minutos', 'Depende del día'] },
+    { t: '¿CUÁL ES TU NIVEL?', s: '', o: ['Principiante', 'Intermedio', 'Estoy retomando'] },
+    { t: '¿QUÉ TE FRUSTRA MÁS?', s: '', o: ['No ver progreso', 'Abandonar la rutina', 'No saber si lo hago bien'] },
+    { t: '¿QUÉ TE AYUDARÍA?', s: '', o: ['Guía paso a paso', 'Ejercicios sencillos', 'Rutinas rápidas'] },
+    { t: '¿CÓMO PREFIERES AVANZAR?', s: '', o: ['A mi ritmo', 'Con un camino claro', 'Con sesiones cortas'] },
+    { t: '¿QUIERES VER TU RECOMENDACIÓN?', s: '', o: ['¡Sí, ahora!', 'Quiero empezar', 'Muéstrame mi enfoque'] }
   ];
 
   // El programa de 4 semanas es el mismo; la recomendación orienta
@@ -32,7 +32,7 @@
   const mainCard = document.querySelector('.quiz-main-card');
   const setStage = (stage) => {
     document.body.setAttribute('data-quiz-stage',stage);
-    if (floatAction) floatAction.textContent = stage === 'result' ? 'VER PLAN →' : 'QUIERO MI RECOMENDACIÓN →';
+    if (floatAction) floatAction.textContent = stage === 'result' ? 'VER PLAN →' : 'DESCUBRIR MI PLAN →';
     if (stage !== 'intro' && mainCard && window.matchMedia('(max-width: 760px)').matches) {
       mainCard.scrollIntoView({behavior:'smooth',block:'start'});
     }
@@ -60,11 +60,12 @@
 
   const render = () => {
     const q = questions[idx];
-    if (step) step.textContent = `PREGUNTA ${idx + 1} DE ${questions.length}`;
+    if (step) step.textContent = `${idx + 1} DE ${questions.length}`;
     next.textContent = idx === questions.length - 1 ? 'VER MI RECOMENDACIÓN →' : 'SEGUIR →';
     bar.style.width = `${((idx + 1) / questions.length) * 100}%`;
     qt.textContent = q.t;
     qs.textContent = q.s;
+    qs.hidden = !q.s;
     opts.innerHTML = '';
     q.o.forEach((opt, i) => {
       const button = document.createElement('button');
@@ -125,7 +126,7 @@
       }
     }
     rt.textContent = '¡ENCONTRAMOS TU ENFOQUE!';
-    rd.textContent = 'Abriendo tu recomendación…';
+    rd.textContent = 'Abriendo tu plan…';
     rl.innerHTML = '';
     try {
       localStorage.setItem('quiz_offer_line', p.title);
