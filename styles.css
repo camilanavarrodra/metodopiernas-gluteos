@@ -844,3 +844,35 @@ body.sales-page.new-minimal{
  .new-minimal .nm-photo-card{aspect-ratio:4/5!important}
  .new-minimal .nm-photo-card img{height:100%!important;transform:scale(1.28)!important}
 }
+
+/* v14: imagem principal inteira — sem corte, sem zoom nem moldura */
+.new-minimal .nm-main-photo {
+  width:100%!important;
+  max-width:470px!important;
+  height:auto!important;
+  padding:0!important;
+  margin-inline:auto!important;
+  overflow:visible!important;
+  border:0!important;
+  outline:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.new-minimal .nm-main-photo img {
+  display:block!important;
+  width:100%!important;
+  max-width:100%!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  margin:0!important;
+  padding:0!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  transform:none!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+}
+.new-minimal .nm-main-photo figcaption {display:none!important}
