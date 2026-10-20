@@ -42,16 +42,11 @@
   const opts = document.getElementById('opts');
   const prev = document.getElementById('prev');
   const bar = document.getElementById('bar');
-  const rt = document.getElementById('rt');
-  const rd = document.getElementById('rd');
-  const rl = document.getElementById('rl');
-  const restart = document.getElementById('restart');
   const seeOffer = document.getElementById('seeOffer');
 
   let idx = 0;
   let answers = new Array(questions.length).fill(null);
   let transitioning = false;
-  let redirectHandle = null;
 
   // Eventos de funil: cada etapa é contabilizada apenas uma vez por sessão.
   // O evento padrão Lead permanece reservado à conclusão do quiz.
@@ -155,20 +150,14 @@
     bar.style.width = '100%';
     bar.parentElement?.setAttribute('aria-valuenow', '100');
     trackCustomOnce('QuizComplete', {questions_total: questions.length});
-    rt.textContent = '¡TU RECOMENDACIÓN ESTÁ LISTA!';
-    rd.textContent = 'Abriendo el programa de 4 semanas para entrenar en casa…';
-    rl.innerHTML = '';
     try {
       localStorage.setItem('quiz_offer_line', p.title);
       localStorage.setItem('quiz_offer_desc', p.desc);
     } catch (_) {
       // El bloqueo del almacenamiento no debe impedir el acceso a la oferta.
     }
-    // Redirige automáticamente, sin un clic adicional.
-    // Breve margen para que el evento Lead del Pixel pueda enviarse.
-    redirectHandle = window.setTimeout(() => {
-      window.location.assign('./');
-    }, 750);
+    // La pantalla de beneficios queda visible hasta que el usuario pulse el botón.
+    // La navegación a la página de ventas es siempre voluntaria.
   };
 
   start?.addEventListener('click', () => {
@@ -184,17 +173,6 @@
       idx -= 1;
       render();
     }
-  });
-
-  restart?.addEventListener('click', () => {
-    window.clearTimeout(redirectHandle);
-    transitioning = false;
-    idx = 0;
-    answers = new Array(questions.length).fill(null);
-    result.classList.add('hidden');
-    intro.classList.remove('hidden');
-    quest.classList.add('hidden');
-    setStage('intro');
   });
 
   seeOffer?.addEventListener('click', () => {

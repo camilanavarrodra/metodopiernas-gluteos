@@ -19,9 +19,9 @@
 })();
 </script>
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="quiz-estilos.css?v=progreso-visual-v3">
+<link rel="stylesheet" href="quiz-estilos.css?v=beneficios-v8">
 <script src="config.js?v=kiwify-checkout-v1" defer></script>
-<script src="quiz.js?v=progreso-visual-v3" defer></script>
+<script src="quiz.js?v=beneficios-v8" defer></script>
 <!-- Meta Pixel: 4286405011491298 -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -67,16 +67,20 @@ fbq('track', 'PageView');
           </div>
         </div>
 
-        <div id="result" class="quiz-result-card hidden">
-          <span class="quiz-ready-icon" aria-hidden="true">✓</span>
-          <span class="quiz-eyebrow">SEGÚN TUS RESPUESTAS</span>
-          <h2 id="rt" class="question-title"></h2>
-          <p id="rd" class="question-sub"></p>
-          <ul id="rl" class="result-list"></ul>
-          <div class="quiz-result-price"><span>ACCESO DIGITAL · PAGO ÚNICO</span><strong>US$ 6.90</strong></div>
-          <button id="seeOffer" class="quiz-action-main" type="button">QUIERO MI PLAN →</button>
-          <button id="restart" class="quiz-restart-btn" type="button">Volver a empezar</button>
-        </div>
+        <section id="result" class="quiz-result-card quiz-benefits-screen hidden" aria-labelledby="benefits-title">
+          <p class="quiz-benefits-eyebrow">ESTO ES LO QUE RECIBES</p>
+          <h2 id="benefits-title" class="quiz-benefits-title">TU PLAN.<br><em>EN TUS MANOS.</em></h2>
+          <p class="quiz-benefits-subtitle">Todo lo necesario para empezar en casa.</p>
+          <ul class="quiz-benefits-list">
+            <li>Entrenamientos de 20 minutos al día</li>
+            <li>Ejercicios para hacer en casa</li>
+            <li>Rutinas que puedes adaptar a tu nivel</li>
+            <li>Movimientos sin saltos de alto impacto</li>
+            <li>Programa progresivo de 4 semanas</li>
+            <li>Acceso digital después de la compra</li>
+          </ul>
+          <button id="seeOffer" class="quiz-action-main quiz-benefits-cta" type="button">QUIERO MI PLAN <span aria-hidden="true">→</span></button>
+        </section>
       </section>
 
       <aside class="quiz-photo-panel" aria-label="Inspiración visual">
