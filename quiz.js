@@ -2,13 +2,8 @@
   const questions = [
     { t: '¿QUÉ QUIERES CAMBIAR?', s: '', o: ['Glúteos con más forma', 'Piernas más firmes', 'Ambos'] },
     { t: '¿QUÉ TE DETIENE?', s: '', o: ['No sé qué hacer', 'No tengo tiempo', 'No soy constante'] },
-    { t: '¿DÓNDE ENTRENARÍAS?', s: '', o: ['En casa', 'En poco espacio', 'Donde pueda'] },
     { t: '¿CUÁNTO TIEMPO TIENES?', s: '', o: ['10–20 minutos', '20–30 minutos', 'Depende del día'] },
-    { t: '¿CUÁL ES TU NIVEL?', s: '', o: ['Principiante', 'Intermedio', 'Estoy retomando'] },
-    { t: '¿QUÉ TE FRUSTRA MÁS?', s: '', o: ['No ver progreso', 'Abandonar la rutina', 'No saber si lo hago bien'] },
-    { t: '¿QUÉ TE AYUDARÍA?', s: '', o: ['Guía paso a paso', 'Ejercicios sencillos', 'Rutinas rápidas'] },
-    { t: '¿CÓMO PREFIERES AVANZAR?', s: '', o: ['A mi ritmo', 'Con un camino claro', 'Con sesiones cortas'] },
-    { t: '¿QUIERES VER TU RECOMENDACIÓN?', s: '', o: ['¡Sí, ahora!', 'Quiero empezar', 'Muéstrame mi enfoque'] }
+    { t: '¿CUÁL ES TU NIVEL?', s: '', o: ['Principiante', 'Intermedio', 'Estoy retomando'] }
   ];
 
   // El programa de 4 semanas es el mismo; la recomendación orienta
@@ -45,7 +40,6 @@
   const qt = document.getElementById('qt');
   const qs = document.getElementById('qs');
   const opts = document.getElementById('opts');
-  const next = document.getElementById('next');
   const prev = document.getElementById('prev');
   const step = document.getElementById('step');
   const bar = document.getElementById('bar');
@@ -57,6 +51,8 @@
 
   let idx = 0;
   let answers = new Array(questions.length).fill(null);
+  let transitioning = false;
+  let redirectHandle = null;
 
   // Eventos de funil: cada etapa é contabilizada apenas uma vez por sessão.
   // O evento padrão Lead permanece reservado à conclusão do quiz.
@@ -75,15 +71,16 @@
   }
 
   const render = () => {
+    transitioning = false;
     const q = questions[idx];
-    if (idx === 4) trackCustomOnce('QuizMidpoint', {step_reached: 5, questions_total: questions.length});
+    if (idx === 2) trackCustomOnce('QuizMidpoint', {step_reached: 3, questions_total: questions.length});
     if (step) step.textContent = `${idx + 1} DE ${questions.length}`;
-    next.textContent = idx === questions.length - 1 ? 'VER MI RECOMENDACIÓN →' : 'SEGUIR →';
     bar.style.width = `${((idx + 1) / questions.length) * 100}%`;
     qt.textContent = q.t;
     qs.textContent = q.s;
     qs.hidden = !q.s;
-    opts.innerHTML = '';
+    opts.replaceChildren();
+
     q.o.forEach((opt, i) => {
       const button = document.createElement('button');
       button.type = 'button';
@@ -91,26 +88,40 @@
       const icon = document.createElement('span');
       icon.className = 'quiz-choice-icon';
       icon.textContent = '✓';
-      icon.setAttribute('aria-hidden','true');
+      icon.setAttribute('aria-hidden', 'true');
       const label = document.createElement('span');
       label.className = 'quiz-option-text';
       label.textContent = opt;
       const arrow = document.createElement('span');
       arrow.className = 'quiz-option-arrow';
       arrow.textContent = '›';
-      arrow.setAttribute('aria-hidden','true');
-      button.append(icon,label,arrow);
-      button.setAttribute('aria-pressed',String(answers[idx] === i));
-      button.onclick = () => {
+      arrow.setAttribute('aria-hidden', 'true');
+      button.append(icon, label, arrow);
+      button.setAttribute('aria-pressed', String(answers[idx] === i));
+
+      button.addEventListener('click', () => {
+        // Evita avanço duplo ao tocar repetidamente na opção.
+        if (transitioning) return;
+        transitioning = true;
         answers[idx] = i;
-        [...opts.children].forEach(el => el.classList.remove('active'));
-        button.classList.add('active');
-        [...opts.children].forEach(el => el.setAttribute('aria-pressed',String(el === button)));
-        next.disabled = false;
-      };
+        [...opts.children].forEach(el => {
+          el.classList.toggle('active', el === button);
+          el.setAttribute('aria-pressed', String(el === button));
+        });
+        if (prev) prev.disabled = true;
+        // Feedback visual curto; sem exigir clique adicional em "Seguir".
+        window.setTimeout(() => {
+          if (idx === questions.length - 1) {
+            showResult();
+          } else {
+            idx += 1;
+            render();
+          }
+        }, 220);
+      });
       opts.appendChild(button);
     });
-    next.disabled = answers[idx] == null;
+    prev.disabled = false;
     prev.style.visibility = idx === 0 ? 'hidden' : 'visible';
   };
 
@@ -125,9 +136,8 @@
     const p = chooseProfile();
     quest.classList.add('hidden');
     result.classList.remove('hidden');
-    next.disabled = true;
     setStage('result');
-    // Dispara Lead apenas quando as 9 respostas foram concluídas.
+    // Dispara Lead apenas quando as 4 respostas forem concluídas.
     // Evita contar várias vezes no mesmo navegador e sessão.
     try {
       if (!sessionStorage.getItem('piernas_quiz_lead_sent_v1')) {
@@ -154,7 +164,7 @@
     }
     // Redirige automáticamente, sin un clic adicional.
     // Breve margen para que el evento Lead del Pixel pueda enviarse.
-    window.setTimeout(() => {
+    redirectHandle = window.setTimeout(() => {
       window.location.assign('./');
     }, 750);
   };
@@ -167,24 +177,16 @@
     render();
   });
 
-  next?.addEventListener('click', () => {
-    if (answers[idx] == null) return;
-    if (idx < questions.length - 1) {
-      idx += 1;
-      render();
-    } else {
-      showResult();
-    }
-  });
-
   prev?.addEventListener('click', () => {
-    if (idx > 0) {
+    if (!transitioning && idx > 0) {
       idx -= 1;
       render();
     }
   });
 
   restart?.addEventListener('click', () => {
+    window.clearTimeout(redirectHandle);
+    transitioning = false;
     idx = 0;
     answers = new Array(questions.length).fill(null);
     result.classList.add('hidden');
