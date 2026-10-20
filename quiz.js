@@ -153,8 +153,8 @@
       }
     }
     trackCustomOnce('QuizComplete', {questions_total: questions.length});
-    rt.textContent = '¡ENCONTRAMOS TU ENFOQUE!';
-    rd.textContent = 'Abriendo tu plan…';
+    rt.textContent = '¡TU RECOMENDACIÓN ESTÁ LISTA!';
+    rd.textContent = 'Abriendo el programa de 4 semanas para entrenar en casa…';
     rl.innerHTML = '';
     try {
       localStorage.setItem('quiz_offer_line', p.title);
