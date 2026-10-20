@@ -251,3 +251,40 @@
   .quiz-neon .quiz-benefits-list li::before{flex-basis:28px;width:28px;height:28px;font-size:22px}
   .quiz-neon .quiz-benefits-cta{min-height:62px}
 }
+
+/* v10 — encabezado original + beneficios en la misma pantalla inicial */
+.quiz-neon .quiz-benefits-screen .quiz-intro-hero{
+  width:100%;margin:0 auto 25px;
+}
+.quiz-neon .quiz-benefits-screen .quiz-intro-hero h1{
+  font-size:clamp(34px,4.6vw,53px);
+  line-height:1.04;
+  margin:18px auto 14px;
+}
+.quiz-neon .quiz-benefits-screen .quiz-intro-hero .quiz-invite{
+  font-size:clamp(15px,1.9vw,19px);
+  line-height:1.4;
+  margin:0 auto;
+  max-width:490px;
+}
+.quiz-neon .quiz-benefits-screen .quiz-intro-benefits{
+  width:100%;
+  border-top:1px solid rgba(243,155,240,.25);
+  padding-top:22px;
+}
+.quiz-neon .quiz-benefits-screen .quiz-benefits-title{
+  font-size:clamp(34px,4.2vw,48px);
+  line-height:1.03;
+}
+.quiz-neon .quiz-benefits-screen .quiz-benefits-subtitle{margin-bottom:20px}
+.quiz-neon .quiz-benefits-screen .quiz-benefits-list{margin-bottom:22px}
+@media(max-width:760px){
+  .quiz-neon .quiz-benefits-screen .quiz-intro-hero{margin-bottom:24px}
+  .quiz-neon .quiz-benefits-screen .quiz-intro-hero h1{
+    font-size:clamp(33px,8.5vw,47px);
+  }
+  .quiz-neon .quiz-benefits-screen .quiz-benefits-title{
+    font-size:clamp(33px,8.6vw,46px);
+  }
+  .quiz-neon .quiz-benefits-screen .quiz-intro-benefits{padding-top:21px}
+}
