@@ -316,3 +316,29 @@
     font-size:clamp(15px,4.4vw,18px);
   }
 }
+
+/* v12: CTA verde en la franja superior, adaptado a escritorio y móvil. */
+.quiz-neon .quiz-sale-top{
+  display:flex;align-items:center;justify-content:center;gap:clamp(10px,3vw,24px);
+  padding:8px clamp(10px,2.5vw,22px)!important;
+}
+.quiz-neon .quiz-sale-top .quiz-sale-heading{flex:0 1 auto;min-width:0;}
+.quiz-neon .quiz-sale-top .quiz-top-cta{
+  flex:0 1 auto;width:auto!important;max-width:390px;
+  min-height:45px!important;padding:10px 18px!important;
+  font-size:clamp(11px,1.7vw,16px)!important;
+  line-height:1.15;white-space:nowrap;
+  box-shadow:0 5px 17px rgba(151,253,28,.36)!important;
+}
+.quiz-neon:not([data-quiz-stage="intro"]) .quiz-top-cta{display:none!important;}
+@media(max-width:600px){
+  .quiz-neon .quiz-sale-top{gap:8px;padding:7px 8px!important;}
+  .quiz-neon .quiz-sale-heading{font-size:clamp(10px,3vw,13px)!important;line-height:1.15;}
+  .quiz-neon .quiz-sale-top .quiz-top-cta{
+    width:auto!important;min-height:41px!important;
+    padding:8px 10px!important;
+    font-size:clamp(10px,2.7vw,12px)!important;
+    letter-spacing:0!important;white-space:normal;text-wrap:balance;
+    max-width:55%;
+  }
+}
