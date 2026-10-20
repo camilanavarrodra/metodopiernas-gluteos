@@ -41,7 +41,6 @@
   const qs = document.getElementById('qs');
   const opts = document.getElementById('opts');
   const prev = document.getElementById('prev');
-  const step = document.getElementById('step');
   const bar = document.getElementById('bar');
   const rt = document.getElementById('rt');
   const rd = document.getElementById('rd');
@@ -74,8 +73,9 @@
     transitioning = false;
     const q = questions[idx];
     if (idx === 2) trackCustomOnce('QuizMidpoint', {step_reached: 3, questions_total: questions.length});
-    if (step) step.textContent = `${idx + 1} DE ${questions.length}`;
-    bar.style.width = `${((idx + 1) / questions.length) * 100}%`;
+    const progressPercent = Math.round((idx / questions.length) * 100);
+    bar.style.width = `${progressPercent}%`;
+    bar.parentElement?.setAttribute("aria-valuenow", String(progressPercent));
     qt.textContent = q.t;
     qs.textContent = q.s;
     qs.hidden = !q.s;
@@ -152,6 +152,8 @@
         window.__quizLeadTracked = true;
       }
     }
+    bar.style.width = '100%';
+    bar.parentElement?.setAttribute('aria-valuenow', '100');
     trackCustomOnce('QuizComplete', {questions_total: questions.length});
     rt.textContent = '¡TU RECOMENDACIÓN ESTÁ LISTA!';
     rd.textContent = 'Abriendo el programa de 4 semanas para entrenar en casa…';

@@ -195,3 +195,8 @@
 .quiz-neon .quiz-auto-hint{flex:1;min-width:0;margin:0;text-align:right;color:#dfc7e9;font-size:12px;line-height:1.35;font-weight:600;}
 .quiz-neon .quiz-secondary-btn:disabled{opacity:.5;cursor:default;}
 @media(max-width:380px){.quiz-neon .quiz-auto-hint{font-size:11px;}}
+
+/* v7 — progresso visual discreto, sem contador de perguntas */
+.quiz-neon #quest>.progress{margin-top:7px!important;margin-bottom:24px!important;height:12px!important;}
+.quiz-neon .quiz-stage-actions{justify-content:flex-start!important;}
+.quiz-neon .quiz-intro .quiz-invite{max-width:480px;}
