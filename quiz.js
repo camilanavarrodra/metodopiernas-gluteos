@@ -36,13 +36,11 @@
   const start = document.getElementById('start');
   const intro = document.getElementById('intro');
   const quest = document.getElementById('quest');
-  const result = document.getElementById('result');
   const qt = document.getElementById('qt');
   const qs = document.getElementById('qs');
   const opts = document.getElementById('opts');
   const prev = document.getElementById('prev');
   const bar = document.getElementById('bar');
-  const seeOffer = document.getElementById('seeOffer');
 
   let idx = 0;
   let answers = new Array(questions.length).fill(null);
@@ -129,9 +127,8 @@
 
   const showResult = () => {
     const p = chooseProfile();
-    quest.classList.add('hidden');
-    result.classList.remove('hidden');
-    setStage('result');
+    transitioning = true;
+    // Completa el quiz sin mostrar otra pantalla intermedia.
     // Dispara Lead apenas quando as 4 respostas forem concluídas.
     // Evita contar várias vezes no mesmo navegador e sessão.
     try {
@@ -156,8 +153,11 @@
     } catch (_) {
       // El bloqueo del almacenamiento no debe impedir el acceso a la oferta.
     }
-    // La pantalla de beneficios queda visible hasta que el usuario pulse el botón.
-    // La navegación a la página de ventas es siempre voluntaria.
+    // Los beneficios ya se presentaron antes de empezar; continúa a la oferta.
+    // Una breve pausa permite enviar los eventos del Pixel antes de navegar.
+    window.setTimeout(() => {
+      window.location.assign('./');
+    }, 850);
   };
 
   start?.addEventListener('click', () => {
@@ -175,11 +175,7 @@
     }
   });
 
-  seeOffer?.addEventListener('click', () => {
-    window.location.href = './';
-  });
   floatAction?.addEventListener('click', () => {
-    if (document.body.getAttribute('data-quiz-stage') === 'result') window.location.href = './';
-    else start?.click();
+    start?.click();
   });
 })();
