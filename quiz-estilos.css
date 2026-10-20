@@ -288,3 +288,31 @@
   }
   .quiz-neon .quiz-benefits-screen .quiz-intro-benefits{padding-top:21px}
 }
+
+/* v11: CTAs repetidos sin crear nuevas etapas en el quiz */
+.quiz-neon .quiz-benefits-screen .quiz-intro-hero{max-width:630px}
+.quiz-neon .quiz-benefits-screen .quiz-hero-cta{
+  width:100%;min-height:65px;margin-top:20px;
+  font-size:clamp(17px,2.5vw,21px);
+}
+.quiz-neon .quiz-benefits-screen .quiz-intro-hero .quiz-under-action{
+  margin-top:11px;margin-bottom:0;
+}
+.quiz-neon .quiz-mobile-sticky{display:none;}
+@media(max-width:760px){
+  .quiz-neon[data-quiz-stage="intro"]{padding-bottom:118px;}
+  .quiz-neon[data-quiz-stage="intro"] .quiz-mobile-sticky{
+    position:fixed;z-index:80;bottom:0;left:0;right:0;
+    display:block;padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+    background:linear-gradient(180deg,rgba(24,6,29,0),rgba(24,6,29,.94) 22%);
+  }
+  .quiz-neon .quiz-mobile-sticky-btn{
+    width:100%;max-width:620px;margin-inline:auto;
+    min-height:56px!important;padding:10px 14px!important;
+    font-size:clamp(14px,4vw,18px)!important;
+  }
+  .quiz-neon .quiz-benefits-screen .quiz-hero-cta{
+    min-height:61px;margin-top:18px;
+    font-size:clamp(15px,4.4vw,18px);
+  }
+}

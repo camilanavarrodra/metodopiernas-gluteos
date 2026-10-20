@@ -161,11 +161,18 @@
   };
 
   start?.addEventListener('click', () => {
+    if (document.body.getAttribute('data-quiz-stage') !== 'intro') return;
     trackCustomOnce('QuizStart', {questions_total: questions.length});
     intro.classList.add('hidden');
     quest.classList.remove('hidden');
     setStage('questions');
     render();
+  });
+
+  // Todos los botones de llamada a la acción inician el mismo quiz y conservan
+  // el evento QuizStart sin duplicarlo.
+  document.querySelectorAll('[data-quiz-start]').forEach(button => {
+    button.addEventListener('click', () => start?.click());
   });
 
   prev?.addEventListener('click', () => {
