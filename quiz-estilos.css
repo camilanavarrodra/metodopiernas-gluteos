@@ -342,3 +342,17 @@
     max-width:55%;
   }
 }
+
+/* v13: sin pantalla inicial; foco inmediato en la primera pregunta. */
+.quiz-neon[data-quiz-stage="questions"]{padding-bottom:0;}
+.quiz-neon[data-quiz-stage="questions"] .quiz-shell{
+  padding-top:clamp(16px,3.2vw,35px);
+}
+.quiz-neon[data-quiz-stage="questions"] .quiz-main-card{
+  min-height:clamp(370px,48vw,540px);
+}
+@media(max-width:760px){
+  .quiz-neon[data-quiz-stage="questions"] .quiz-main-card{
+    min-height:0;
+  }
+}

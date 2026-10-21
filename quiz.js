@@ -23,18 +23,6 @@
     }
   };
 
-  const floatAction = document.getElementById('quizFloatAction');
-  const mainCard = document.querySelector('.quiz-main-card');
-  const setStage = (stage) => {
-    document.body.setAttribute('data-quiz-stage',stage);
-    if (floatAction) floatAction.textContent = stage === 'result' ? 'VER PLAN →' : 'DESCUBRIR MI PLAN →';
-    if (stage !== 'intro' && mainCard && window.matchMedia('(max-width: 760px)').matches) {
-      mainCard.scrollIntoView({behavior:'smooth',block:'start'});
-    }
-  };
-
-  const start = document.getElementById('start');
-  const intro = document.getElementById('intro');
   const quest = document.getElementById('quest');
   const qt = document.getElementById('qt');
   const qs = document.getElementById('qs');
@@ -96,6 +84,9 @@
         // Evita avanço duplo ao tocar repetidamente na opção.
         if (transitioning) return;
         transitioning = true;
+        // Sin pantalla de introducción: contamos QuizStart con la primera respuesta,
+        // no con una simple visita a la página.
+        if (idx === 0) trackCustomOnce('QuizStart', {questions_total: questions.length});
         answers[idx] = i;
         [...opts.children].forEach(el => {
           el.classList.toggle('active', el === button);
@@ -153,27 +144,15 @@
     } catch (_) {
       // El bloqueo del almacenamiento no debe impedir el acceso a la oferta.
     }
-    // Los beneficios ya se presentaron antes de empezar; continúa a la oferta.
+    // Al terminar las cuatro respuestas, continúa directamente a la oferta.
     // Una breve pausa permite enviar los eventos del Pixel antes de navegar.
     window.setTimeout(() => {
       window.location.assign('./');
     }, 850);
   };
 
-  start?.addEventListener('click', () => {
-    if (document.body.getAttribute('data-quiz-stage') !== 'intro') return;
-    trackCustomOnce('QuizStart', {questions_total: questions.length});
-    intro.classList.add('hidden');
-    quest.classList.remove('hidden');
-    setStage('questions');
-    render();
-  });
-
-  // Todos los botones de llamada a la acción inician el mismo quiz y conservan
-  // el evento QuizStart sin duplicarlo.
-  document.querySelectorAll('[data-quiz-start]').forEach(button => {
-    button.addEventListener('click', () => start?.click());
-  });
+  // La primera pregunta se presenta inmediatamente al abrir la URL.
+  render();
 
   prev?.addEventListener('click', () => {
     if (!transitioning && idx > 0) {
@@ -182,7 +161,4 @@
     }
   });
 
-  floatAction?.addEventListener('click', () => {
-    start?.click();
-  });
 })();
