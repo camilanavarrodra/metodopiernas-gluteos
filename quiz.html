@@ -2,302 +2,163 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#51076e">
-<meta name="description" content="Descubre el enfoque recomendado para empezar a fortalecer piernas y glúteos en casa. Gratis y rápido.">
-<title>Descubre tu plan | Piernas & Glúteos</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#260b32">
+<meta name="description" content="Contesta 4 preguntas y descubre el enfoque recomendado para empezar tu programa de piernas y glúteos.">
+<title>Desbloquea tu enfoque | Piernas & Glúteos</title>
 <link rel="canonical" href="https://camilanavarrodra.github.io/metodopiernas-gluteos/quiz.html">
-<script>
-(function () {
-  try {
-    const url = new URL(window.location.href);
-    if (url.searchParams.get('utm_source') === 'chatgpt.com') {
-      url.searchParams.delete('utm_source');
-      history.replaceState(null, '', url.pathname + url.search + url.hash);
-    }
-  } catch (_) {}
-})();
-</script>
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="quiz-estilos.css?v=desbloqueo-v16">
-<script src="config.js?v=kiwify-checkout-v1" defer></script>
-<!-- O quiz fica embutido na página para evitar versões antigas em cache. -->
-<!-- Meta Pixel: 4286405011491298 -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;
-n.version='2.0';n.queue=[];
-t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}
-(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '4286405011491298');
-fbq('track', 'PageView');
-</script>
-<!-- End Meta Pixel -->
-
 <style>
-.quiz-neon .quiz-unlock{position:relative;overflow:hidden;margin:0 0 16px;padding:20px 24px;border-radius:21px;background:radial-gradient(ellipse at 100% 0%,#ed31bb66,transparent 50%),linear-gradient(115deg,#4d1168,#240b33 70%);border:2px solid #d446c5;box-shadow:0 9px 28px #0005;color:#fff}
-.quiz-neon .quiz-unlock:after{content:"";width:170px;height:170px;position:absolute;right:-100px;top:-110px;border:28px solid #ff80e72b;border-radius:100%;pointer-events:none}
-.quiz-neon .quiz-unlock-top{display:flex;align-items:center;gap:9px;margin-bottom:9px}
-.quiz-neon .quiz-unlock-icon{display:grid;place-items:center;width:30px;height:30px;background:#a9ff19;border-radius:10px;font-size:16px}
-.quiz-neon .quiz-unlock-tag{font-size:11px;letter-spacing:.08em;color:#ffc7f3;font-weight:950}
-.quiz-neon .quiz-unlock h1{color:#fff;font-size:clamp(25px,4.2vw,40px);line-height:1.02;letter-spacing:-.045em;font-weight:1000;margin:8px 0 10px;max-width:none;text-align:left}
-.quiz-neon .quiz-unlock h1 em{font-style:normal;color:#b8ff2b;text-shadow:0 3px 21px #a9ff1952}
-.quiz-neon .quiz-unlock p{margin:0 0 13px;color:#f0dff4;font-size:clamp(12px,1.8vw,15px);line-height:1.53;max-width:770px}
-.quiz-neon .quiz-unlock p strong{color:#fff}
-.quiz-neon .quiz-unlock-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid #ffadf04a;padding-top:12px;color:#b8ff2b;font-size:11px;font-weight:950;letter-spacing:.025em;line-height:1.35}
-.quiz-neon .quiz-unlock-spark{font-size:20px;color:#ffa4e8}
-@media(max-width:760px){.quiz-neon .quiz-shell{padding-top:12px}.quiz-neon .quiz-unlock{padding:16px;border-radius:17px;margin-bottom:11px}.quiz-neon .quiz-unlock h1{font-size:clamp(26px,7.7vw,35px)}.quiz-neon .quiz-unlock-tag{font-size:10px}.quiz-neon .quiz-unlock p{font-size:13px;line-height:1.4;margin-bottom:10px}.quiz-neon .quiz-unlock-footer{font-size:10px;padding-top:9px}.quiz-neon .quiz-main-card{padding-top:19px;padding-bottom:19px}.quiz-neon .progress{margin-bottom:17px}.quiz-neon .question-sub{margin-bottom:15px}}
-@media(max-width:370px){.quiz-neon .quiz-unlock h1{font-size:25px}.quiz-neon .quiz-unlock{padding:14px}}
+:root{--bg:#190820;--purple:#3c0c53;--panel:#321040;--rose:#ff7adf;--lime:#afff28;--muted:#e9d8ef}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% -60px,#751596,#321042 45%,#17091e 100%);min-height:100vh;color:#fff;font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+main{width:min(640px,calc(100% - 26px));margin:0 auto;padding:14px 0 32px}
+.teaser{padding:19px 18px 18px;border:2px solid #df46c7;border-radius:20px;background:radial-gradient(circle at 100% 0,#de33aa55,transparent 50%),linear-gradient(130deg,#4b1465,#230a30);box-shadow:0 14px 36px #07020b87;margin-bottom:14px}
+.ribbon{display:flex;align-items:center;gap:8px;color:#ffd5f4;font-size:10px;font-weight:950;letter-spacing:.06em;line-height:1.4}
+.ribbon .lock{display:grid;place-items:center;width:29px;height:29px;flex:0 0 29px;background:var(--lime);color:#1c2f00;border-radius:9px;font-size:17px}
+.teaser h1{font-size:clamp(27px,7.4vw,42px);line-height:1.01;letter-spacing:-.047em;font-weight:1000;margin:13px 0 10px}
+.teaser h1 em{color:var(--lime);font-style:normal}
+.teaser p{margin:0 0 13px;color:#f1dff5;font-size:13px;line-height:1.52}
+.teaser p b{color:#fff}
+.unlock-count{border-top:1px solid #e87ad74a;padding-top:11px;color:var(--lime);font-size:11px;font-weight:950;letter-spacing:.025em}
+.panel{padding:21px 17px 18px;border-radius:21px;border:1px solid #c968d7ad;background:radial-gradient(circle at 100% 0,#ed46c31f,transparent 45%),linear-gradient(120deg,#2e103b,#190b23);box-shadow:0 18px 38px #08020a73;min-height:310px}
+.step{color:#b9ff51;font-weight:950;font-size:11px;letter-spacing:.12em;margin-bottom:11px}
+.track{height:9px;border-radius:15px;background:#45224f;border:1px solid #82428a;overflow:hidden;margin-bottom:23px}
+.track span{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff48d3,var(--lime));transition:width .25s}
+h2{font-size:clamp(26px,7vw,34px);line-height:1.12;letter-spacing:-.033em;margin:0 0 11px;font-weight:1000}
+.sub{font-size:14px;line-height:1.48;color:#e4d0ec;margin:0 0 22px}
+.options{display:grid;gap:11px}
+.option{cursor:pointer;display:flex;align-items:center;gap:12px;width:100%;min-height:67px;padding:13px 15px;background:#fff;color:#27142e;border:2px solid transparent;border-radius:15px;font:850 14px/1.33 Inter,system-ui,sans-serif;text-align:left;box-shadow:0 5px 15px #0003;transition:background .15s,border-color .15s}
+.option .tick{display:grid;place-items:center;flex:0 0 25px;width:25px;height:25px;border:2px solid #d4bbd8;border-radius:50%;font-size:16px;color:transparent}
+.option .arrow{font-size:24px;color:#aa8ab0;margin-left:auto;line-height:1}
+.option.selected{background:#ebffdf;border-color:#54d319}
+.option.selected .tick{background:#0dbb4c;border-color:#0dbb4c;color:white}
+.option:focus-visible,.back:focus-visible{outline:3px solid #ff7adf;outline-offset:3px}
+.actions{display:flex;align-items:center;justify-content:flex-start;margin-top:17px;min-height:36px}
+.back{background:transparent;border:1px solid #e6a1e4a8;color:#fff;cursor:pointer;padding:10px 13px;border-radius:24px;font-weight:850;font-size:11px}
+.back[hidden]{display:none}
+.loading{text-align:center;padding:35px 2px}
+.loading .unlocked{font-size:45px;margin-bottom:14px}
+.loading h2{color:var(--lime);margin:0 0 14px}
+.loading p{line-height:1.6;color:#f0e0f4}
+.loading .spinner{margin:22px auto 0;width:42px;height:42px;border:4px solid #ffffff33;border-top-color:var(--lime);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.footer-note{text-align:center;color:#d8c2dc;font-size:11px;margin:15px auto 0;line-height:1.5}
+.noscript{padding:16px;background:#4a1a57;border-radius:12px}
+@media(min-width:760px){main{padding-top:30px}.teaser{padding:27px 30px}.teaser p{font-size:16px}.panel{padding:29px 30px}.option{font-size:15px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important}}
 </style>
 </head>
-<body class="quiz-body quiz-neon" data-quiz-stage="questions">
-<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=4286405011491298&ev=PageView&noscript=1"></noscript>
-  <main class="quiz-shell">
-
-    <section class="quiz-unlock" aria-label="Desbloquea tu enfoque para empezar">
-      <div class="quiz-unlock-top"><span class="quiz-unlock-icon" aria-hidden="true">🔓</span><span class="quiz-unlock-tag">4 PREGUNTAS · 1 RECOMENDACIÓN PARA TI</span></div>
-      <h1>¡TU PLAN ESTÁ A <em>4 RESPUESTAS!</em></h1>
-      <p>Cuéntanos qué te preocupa y qué te ha frenado. Al terminar, <strong>descubrirás el enfoque recomendado para tu objetivo</strong> y podrás ver cómo empezar desde casa.</p>
-      <div class="quiz-unlock-footer">
-        <span id="quiz-unlock-status" aria-live="polite">🔒 SOLO 4 RESPUESTAS PARA DESBLOQUEAR TU RECOMENDACIÓN</span>
-        <span class="quiz-unlock-spark" aria-hidden="true">✦</span>
-      </div>
-    </section>
-
-
-    <div class="quiz-display">
-      <section class="quiz-main-card" aria-label="Cuestionario de piernas y glúteos">
-        <div id="quest">
-          <p id="quiz-step-label" class="quiz-step-label" aria-live="polite">PREGUNTA 1 DE 4</p>
-          <div class="progress" role="progressbar" aria-label="Progreso del cuestionario" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="bar"></span></div>
-          <h2 id="qt" class="question-title"></h2>
-          <p id="qs" class="question-sub"></p>
-          <div id="opts" class="options" role="group" aria-label="Opciones de respuesta"></div>
-          <div class="actions quiz-stage-actions">
-            <button id="prev" class="quiz-secondary-btn" type="button">← VOLVER</button>
-          </div>
-        </div>
-
-
-      </section>
-
-      <aside class="quiz-photo-panel" aria-label="Inspiración visual">
-        <div class="quiz-photo-frame">
-          <img src="assets/before-after-main.png" alt="Imagen ilustrativa comparativa de piernas y glúteos" fetchpriority="high">
-
-        </div>
-      </aside>
+<body>
+<main>
+  <section class="teaser" aria-label="Tu recomendación se desbloquea después de 4 preguntas">
+    <div class="ribbon"><span class="lock" aria-hidden="true">🔓</span><span>4 PREGUNTAS RÁPIDAS · ENFOQUE PARA TU OBJETIVO</span></div>
+    <h1>¡TU PLAN ESTÁ A <em>4 RESPUESTAS!</em></h1>
+    <p>Cuéntanos qué te preocupa y qué te ha frenado. Al terminar, <b>descubrirás un enfoque recomendado</b> para empezar a entrenar piernas y glúteos en casa.</p>
+    <div id="unlock-status" class="unlock-count" aria-live="polite">🔒 SOLO 4 RESPUESTAS PARA DESBLOQUEAR TU RECOMENDACIÓN</div>
+  </section>
+  <section class="panel" aria-label="Cuestionario de piernas y glúteos">
+    <div id="question-stage">
+      <div id="step" class="step" aria-live="polite">PREGUNTA 1 DE 4</div>
+      <div class="track" role="progressbar" aria-label="Progreso del cuestionario" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="bar"></span></div>
+      <h2 id="title">¿QUÉ ES LO QUE MÁS TE MOLESTA AL MIRAR TUS PIERNAS O GLÚTEOS?</h2>
+      <p id="subtitle" class="sub">Elige lo que más te gustaría empezar a trabajar.</p>
+      <div id="options" class="options" role="group" aria-label="Opciones de respuesta"></div>
+      <div class="actions"><button id="back" class="back" type="button" hidden>← VOLVER</button></div>
     </div>
-  </main>
-
+    <div id="finish-stage" class="loading" hidden>
+      <div class="unlocked" aria-hidden="true">🔓</div>
+      <h2>¡RECOMENDACIÓN DESBLOQUEADA!</h2>
+      <p>Estamos preparando el enfoque para tu objetivo. A continuación podrás conocer el programa de 4 semanas.</p>
+      <div class="spinner" aria-hidden="true"></div>
+    </div>
+  </section>
+  <p class="footer-note">En solo 4 respuestas · Sin registro · Programa de 4 semanas para entrenar en casa</p>
+  <noscript><p class="noscript">Para responder el cuestionario, activa JavaScript en tu navegador.</p></noscript>
+</main>
 <script>
-(() => {
-  const questions = [
-    {
-      t: '¿QUÉ ES LO QUE MÁS TE MOLESTA AL MIRAR TUS PIERNAS O GLÚTEOS?',
-      s: 'Elige lo que más te gustaría empezar a trabajar.',
-      o: [
-        'Siento mis glúteos poco firmes',
-        'Quiero fortalecer y dar más firmeza a mis piernas',
-        'Me gustaría trabajar ambas zonas, pero no sé por dónde empezar'
-      ]
-    },
-    {
-      t: '¿QUÉ HAS INTENTADO SIN PODER MANTENERLO?',
-      s: 'Muchas veces, el problema es encontrar una rutina que encaje contigo.',
-      o: [
-        'Videos sueltos sin saber qué rutina seguir',
-        'Ir al gimnasio, pero lo terminé dejando',
-        'Intenté empezar varias veces y siempre lo pospongo'
-      ]
-    },
-    {
-      t: '¿QUÉ TE FRUSTRA MÁS CUANDO INTENTAS ENTRENAR?',
-      s: 'Tu punto de partida importa más que hacer todo perfecto.',
-      o: [
-        'No sé qué ejercicios hacer ni cómo organizarlos',
-        'Las rutinas son largas y no tengo tiempo',
-        'Me cuesta ser constante semana tras semana'
-      ]
-    },
-    {
-      t: '¿QUÉ NECESITARÍAS PARA EMPEZAR CON SEGURIDAD?',
-      s: 'Descubre un enfoque sencillo para empezar desde casa.',
-      o: [
-        'Una guía clara para saber qué hacer primero',
-        'Entrenamientos cortos de unos 20 minutos',
-        'Un plan progresivo de 4 semanas para seguir el ritmo'
-      ]
-    }
-  ];
-
-  // El programa de 4 semanas es el mismo; la recomendación orienta
-  // sobre la prioridad elegida, no promete una rutina creada individualmente.
-  const profiles = {
-    glutes: { title: 'TU ENFOQUE: GLÚTEOS MÁS FIRMES' },
-    legs: { title: 'TU ENFOQUE: PIERNAS MÁS FUERTES' },
-    both: { title: 'TU ENFOQUE: PIERNAS Y GLÚTEOS' }
-  };
-  const obstacleGuides = [
-    'Una guía organizada puede ayudarte a dejar de saltar de un video a otro.',
-    'Puedes empezar desde casa, sin depender de ir al gimnasio.',
-    'Una rutina sencilla es una buena forma de retomar el hábito.'
-  ];
-  const nextStepGuides = [
-    'Sigue las indicaciones para saber por dónde empezar.',
-    'Prueba sesiones de unos 20 minutos, adaptadas a tu ritmo.',
-    'Avanza con una estructura progresiva de 4 semanas.'
-  ];
-
-  const quest = document.getElementById('quest');
-  const qt = document.getElementById('qt');
-  const qs = document.getElementById('qs');
-  const opts = document.getElementById('opts');
-  const prev = document.getElementById('prev');
-  const bar = document.getElementById('bar');
-  const stepLabel = document.getElementById('quiz-step-label');
-  const unlockStatus = document.getElementById('quiz-unlock-status');
-
-  let idx = 0;
-  let answers = new Array(questions.length).fill(null);
-  let transitioning = false;
-
-  // Eventos de funil: cada etapa é contabilizada apenas uma vez por sessão.
-  // O evento padrão Lead permanece reservado à conclusão do quiz.
-  const trackedCustomEvents = new Set();
-  function trackCustomOnce(eventName, params = {}) {
-    if (typeof window.fbq !== 'function' || trackedCustomEvents.has(eventName)) return;
-    const key = 'piernas_gluteos_pixel_' + eventName.toLowerCase() + '_v1';
-    try {
-      if (sessionStorage.getItem(key) === '1') return;
-    } catch (_) {
-      // Alguns navegadores bloqueiam armazenamento; o controle em memória continua.
-    }
-    window.fbq('trackCustom', eventName, params);
-    trackedCustomEvents.add(eventName);
-    try { sessionStorage.setItem(key, '1'); } catch (_) {}
-  }
-
-  const render = () => {
-    transitioning = false;
-    const q = questions[idx];
-    if (stepLabel) stepLabel.textContent = `PREGUNTA ${idx + 1} DE ${questions.length}`;
-    if (unlockStatus) unlockStatus.textContent = `🔒 SOLO ${questions.length - idx} ${questions.length - idx === 1 ? 'RESPUESTA' : 'RESPUESTAS'} PARA DESBLOQUEAR TU RECOMENDACIÓN`;
-    if (idx === 2) trackCustomOnce('QuizMidpoint', {step_reached: 3, questions_total: questions.length});
-    const progressPercent = Math.round((idx / questions.length) * 100);
-    bar.style.width = `${progressPercent}%`;
-    bar.parentElement?.setAttribute("aria-valuenow", String(progressPercent));
-    qt.textContent = q.t;
-    qs.textContent = q.s;
-    qs.hidden = !q.s;
-    opts.replaceChildren();
-
-    q.o.forEach((opt, i) => {
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'option' + (answers[idx] === i ? ' active' : '');
-      const icon = document.createElement('span');
-      icon.className = 'quiz-choice-icon';
-      icon.textContent = '✓';
-      icon.setAttribute('aria-hidden', 'true');
-      const label = document.createElement('span');
-      label.className = 'quiz-option-text';
-      label.textContent = opt;
-      const arrow = document.createElement('span');
-      arrow.className = 'quiz-option-arrow';
-      arrow.textContent = '›';
-      arrow.setAttribute('aria-hidden', 'true');
-      button.append(icon, label, arrow);
-      button.setAttribute('aria-pressed', String(answers[idx] === i));
-
-      button.addEventListener('click', () => {
-        // Evita avanço duplo ao tocar repetidamente na opção.
-        if (transitioning) return;
-        transitioning = true;
-        // Sin pantalla de introducción: contamos QuizStart con la primera respuesta,
-        // no con una simple visita a la página.
-        if (idx === 0) trackCustomOnce('QuizStart', {questions_total: questions.length});
-        answers[idx] = i;
-        [...opts.children].forEach(el => {
-          el.classList.toggle('active', el === button);
-          el.setAttribute('aria-pressed', String(el === button));
-        });
-        if (prev) prev.disabled = true;
-        // Feedback visual curto; sem exigir clique adicional em "Seguir".
-        window.setTimeout(() => {
-          if (idx === questions.length - 1) {
-            showResult();
-          } else {
-            idx += 1;
-            render();
-          }
-        }, 220);
-      });
-      opts.appendChild(button);
-    });
-    prev.disabled = false;
-    prev.style.visibility = idx === 0 ? 'hidden' : 'visible';
-  };
-
-  const chooseProfile = () => {
-    // Recomendación transparente: se basa en el objetivo elegido.
-    if (answers[0] === 0) return profiles.glutes;
-    if (answers[0] === 1) return profiles.legs;
-    return profiles.both;
-  };
-
-  const showResult = () => {
-    const p = chooseProfile();
-    const desc = `${obstacleGuides[answers[1] ?? 0]} ${nextStepGuides[answers[3] ?? 0]}`;
-    if (unlockStatus) unlockStatus.textContent = '🔓 ¡LISTO! TU RECOMENDACIÓN ESTÁ DESBLOQUEADA';
-    transitioning = true;
-    // Completa el quiz sin mostrar otra pantalla intermedia.
-    // Dispara Lead apenas quando as 4 respostas forem concluídas.
-    // Evita contar várias vezes no mesmo navegador e sessão.
-    try {
-      if (!sessionStorage.getItem('piernas_quiz_lead_sent_v1')) {
-        if (typeof window.fbq === 'function') {
-          window.fbq('track', 'Lead');
-          sessionStorage.setItem('piernas_quiz_lead_sent_v1', '1');
-        }
-      }
-    } catch (_) {
-      if (typeof window.fbq === 'function' && !window.__quizLeadTracked) {
-        window.fbq('track', 'Lead');
-        window.__quizLeadTracked = true;
-      }
-    }
-    bar.style.width = '100%';
-    bar.parentElement?.setAttribute('aria-valuenow', '100');
-    trackCustomOnce('QuizComplete', {questions_total: questions.length});
-    try {
-      localStorage.setItem('quiz_offer_line', p.title);
-      localStorage.setItem('quiz_offer_desc', desc);
-    } catch (_) {
-      // El bloqueo del almacenamiento no debe impedir el acceso a la oferta.
-    }
-    // Al terminar las cuatro respuestas, continúa directamente a la oferta.
-    // Una breve pausa permite enviar los eventos del Pixel antes de navegar.
-    window.setTimeout(() => {
-      window.location.assign('./');
-    }, 850);
-  };
-
-  // La primera pregunta se presenta inmediatamente al abrir la URL.
-  render();
-
-  prev?.addEventListener('click', () => {
-    if (!transitioning && idx > 0) {
-      idx -= 1;
-      render();
-    }
-  });
-
+(function(){
+"use strict";
+const questions=[
+ {title:"¿QUÉ ES LO QUE MÁS TE MOLESTA AL MIRAR TUS PIERNAS O GLÚTEOS?",sub:"Elige lo que más te gustaría empezar a trabajar.",options:["Siento mis glúteos poco firmes","Quiero fortalecer y dar más firmeza a mis piernas","Me gustaría trabajar ambas zonas, pero no sé por dónde empezar"]},
+ {title:"¿QUÉ HAS INTENTADO SIN PODER MANTENERLO?",sub:"Muchas veces, el problema es encontrar una rutina que encaje contigo.",options:["Videos sueltos sin saber qué rutina seguir","Ir al gimnasio, pero lo terminé dejando","Intenté empezar varias veces y siempre lo pospongo"]},
+ {title:"¿QUÉ TE FRUSTRA MÁS CUANDO INTENTAS ENTRENAR?",sub:"Tu punto de partida importa más que hacer todo perfecto.",options:["No sé qué ejercicios hacer ni cómo organizarlos","Las rutinas son largas y no tengo tiempo","Me cuesta ser constante semana tras semana"]},
+ {title:"¿QUÉ NECESITARÍAS PARA EMPEZAR CON SEGURIDAD?",sub:"Descubre un enfoque sencillo para empezar desde casa.",options:["Una guía clara para saber qué hacer primero","Entrenamientos cortos de unos 20 minutos","Un plan progresivo de 4 semanas para seguir el ritmo"]}
+];
+const intro=document.getElementById("question-stage");
+const finish=document.getElementById("finish-stage");
+const qTitle=document.getElementById("title");
+const qSub=document.getElementById("subtitle");
+const opts=document.getElementById("options");
+const back=document.getElementById("back");
+const progress=document.getElementById("bar");
+const status=document.getElementById("unlock-status");
+const step=document.getElementById("step");
+let index=0,locked=false;
+const answers=Array(questions.length).fill(null);
+function event(name,custom){
+ if(typeof window.fbq!=="function")return;
+ try{
+   const k="piernas_gluteos_"+name.toLowerCase()+"_20261022";
+   if(sessionStorage.getItem(k)==="1")return;
+   window.fbq("track"+(custom?"Custom":""),name);
+   sessionStorage.setItem(k,"1");
+ }catch(e){window.fbq("track"+(custom?"Custom":""),name);}
+}
+function render(){
+ locked=false;
+ const q=questions[index];
+ qTitle.textContent=q.title;qSub.textContent=q.sub;
+ step.textContent="PREGUNTA "+(index+1)+" DE 4";
+ const remaining=4-index;
+ status.textContent="🔒 SOLO "+remaining+" "+(remaining===1?"RESPUESTA":"RESPUESTAS")+" PARA DESBLOQUEAR TU RECOMENDACIÓN";
+ progress.style.width=Math.round(index/4*100)+"%";
+ progress.parentElement.setAttribute("aria-valuenow",String(Math.round(index/4*100)));
+ opts.replaceChildren();
+ q.options.forEach((opt,n)=>{
+   const b=document.createElement("button");
+   b.type="button";b.className="option";b.setAttribute("aria-pressed",String(answers[index]===n));
+   const check=document.createElement("span");check.className="tick";check.textContent="✓";
+   const text=document.createElement("span");text.textContent=opt;text.style.flex="1";
+   const arrow=document.createElement("span");arrow.className="arrow";arrow.textContent="›";arrow.setAttribute("aria-hidden","true");
+   b.append(check,text,arrow);
+   if(answers[index]===n)b.classList.add("selected");
+   b.addEventListener("click",()=>{
+     if(locked)return;locked=true;
+     if(index===0)event("QuizStart",true);
+     answers[index]=n;
+     b.classList.add("selected");b.setAttribute("aria-pressed","true");
+     setTimeout(()=>{if(index===3)done();else{index++;if(index===2)event("QuizMidpoint",true);render();}},170);
+   });
+   opts.appendChild(b);
+ });
+ back.hidden=index===0;
+}
+function done(){
+ if(answers.some(a=>a===null))return;
+ intro.hidden=true;finish.hidden=false;
+ // Hidden sections must be hidden even if CSS classes specify display.
+ intro.style.display="none";finish.style.display="block";
+ status.textContent="🔓 ¡TU RECOMENDACIÓN ESTÁ DESBLOQUEADA!";
+ const focus=["TU ENFOQUE: GLÚTEOS MÁS FIRMES","TU ENFOQUE: PIERNAS MÁS FUERTES","TU ENFOQUE: PIERNAS Y GLÚTEOS"];
+ const attempts=["Una guía organizada puede ayudarte a dejar de saltar de un video a otro.","Puedes empezar desde casa, sin depender de ir al gimnasio.","Una rutina sencilla es una buena forma de retomar el hábito."];
+ const path=["Sigue una guía clara para saber por dónde empezar.","Prueba sesiones cortas de unos 20 minutos a tu ritmo.","Avanza con la estructura progresiva de 4 semanas."];
+ try{
+   localStorage.setItem("quiz_offer_line",focus[answers[0]]);
+   localStorage.setItem("quiz_offer_desc",attempts[answers[1]]+" "+path[answers[3]]);
+ }catch(e){}
+ event("QuizComplete",true);
+ event("Lead",false);
+ progress.style.width="100%";
+ setTimeout(()=>window.location.assign("./"),1100);
+}
+back.addEventListener("click",()=>{if(locked||index===0)return;index--;render();});
+render();
 })();
 </script>
+<!-- El píxel se carga después del quiz; si la red lo bloquea, las preguntas siguen funcionando. -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+fbq("init","4286405011491298");fbq("track","PageView");
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=4286405011491298&amp;ev=PageView&amp;noscript=1"></noscript>
 </body>
 </html>
