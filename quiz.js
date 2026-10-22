@@ -1,39 +1,39 @@
 (() => {
   const questions = [
     {
-      t: '¿QUÉ TE PREOCUPA MÁS DE TUS PIERNAS Y GLÚTEOS?',
-      s: 'Cuéntanos qué te gustaría empezar a mejorar.',
+      t: '¿QUÉ ES LO QUE MÁS TE MOLESTA AL MIRAR TUS PIERNAS O GLÚTEOS?',
+      s: 'Elige lo que más te gustaría empezar a trabajar.',
       o: [
-        'Mis glúteos se sienten poco firmes',
-        'Mis piernas no tienen la fuerza o firmeza que busco',
-        'Quiero trabajar ambas zonas y no sé cómo empezar'
+        'Siento mis glúteos poco firmes',
+        'Quiero fortalecer y dar más firmeza a mis piernas',
+        'Me gustaría trabajar ambas zonas, pero no sé por dónde empezar'
       ]
     },
     {
-      t: '¿QUÉ TE HA IMPEDIDO LOGRARLO HASTA AHORA?',
-      s: 'No siempre faltan ganas: a veces falta una rutina que encaje contigo.',
+      t: '¿QUÉ HAS INTENTADO SIN PODER MANTENERLO?',
+      s: 'Muchas veces, el problema es encontrar una rutina que encaje contigo.',
       o: [
-        'No sé qué ejercicios hacer ni en qué orden',
-        'Empiezo motivada, pero pierdo la constancia',
-        'El gimnasio y las rutinas largas no encajan en mi día'
+        'Videos sueltos sin saber qué rutina seguir',
+        'Ir al gimnasio, pero lo terminé dejando',
+        'Intenté empezar varias veces y siempre lo pospongo'
       ]
     },
     {
-      t: '¿QUÉ TE RESULTA MÁS DIFÍCIL CUANDO ENTRENAS?',
-      s: 'Identificar esa dificultad es el primer paso para simplificar tu rutina.',
+      t: '¿QUÉ TE FRUSTRA MÁS CUANDO INTENTAS ENTRENAR?',
+      s: 'Tu punto de partida importa más que hacer todo perfecto.',
       o: [
-        'No sé si hago bien los movimientos',
-        'Me canso o me desanimo demasiado rápido',
-        'No sé cómo organizar mis entrenamientos cada semana'
+        'No sé qué ejercicios hacer ni cómo organizarlos',
+        'Las rutinas son largas y no tengo tiempo',
+        'Me cuesta ser constante semana tras semana'
       ]
     },
     {
-      t: '¿QUÉ TE AYUDARÍA A EMPEZAR CON MÁS CONFIANZA?',
-      s: 'Puedes comenzar con un plan sencillo, desde casa y a tu ritmo.',
+      t: '¿QUÉ NECESITARÍAS PARA EMPEZAR CON SEGURIDAD?',
+      s: 'Descubre un enfoque sencillo para empezar desde casa.',
       o: [
-        'Sesiones cortas de unos 20 minutos',
-        'Una guía clara para saber qué hacer',
-        'Un plan de 4 semanas con progresión gradual'
+        'Una guía clara para saber qué hacer primero',
+        'Entrenamientos cortos de unos 20 minutos',
+        'Un plan progresivo de 4 semanas para seguir el ritmo'
       ]
     }
   ];
@@ -41,19 +41,20 @@
   // El programa de 4 semanas es el mismo; la recomendación orienta
   // sobre la prioridad elegida, no promete una rutina creada individualmente.
   const profiles = {
-    glutes: {
-      title: 'TU ENFOQUE: GLÚTEOS MÁS FIRMES',
-      desc: 'Empieza con una rutina clara de 20 minutos para entrenar glúteos en casa.'
-    },
-    legs: {
-      title: 'TU ENFOQUE: PIERNAS MÁS FIRMES',
-      desc: 'Empieza con sesiones cortas y progresivas para fortalecer tus piernas en casa.'
-    },
-    both: {
-      title: 'TU ENFOQUE: PIERNAS Y GLÚTEOS',
-      desc: 'Empieza con un programa de 4 semanas para trabajar piernas y glúteos desde casa.'
-    }
+    glutes: { title: 'TU ENFOQUE: GLÚTEOS MÁS FIRMES' },
+    legs: { title: 'TU ENFOQUE: PIERNAS MÁS FUERTES' },
+    both: { title: 'TU ENFOQUE: PIERNAS Y GLÚTEOS' }
   };
+  const obstacleGuides = [
+    'Una guía organizada puede ayudarte a dejar de saltar de un video a otro.',
+    'Puedes empezar desde casa, sin depender de ir al gimnasio.',
+    'Una rutina sencilla es una buena forma de retomar el hábito.'
+  ];
+  const nextStepGuides = [
+    'Sigue las indicaciones para saber por dónde empezar.',
+    'Prueba sesiones de unos 20 minutos, adaptadas a tu ritmo.',
+    'Avanza con una estructura progresiva de 4 semanas.'
+  ];
 
   const quest = document.getElementById('quest');
   const qt = document.getElementById('qt');
@@ -62,6 +63,7 @@
   const prev = document.getElementById('prev');
   const bar = document.getElementById('bar');
   const stepLabel = document.getElementById('quiz-step-label');
+  const unlockStatus = document.getElementById('quiz-unlock-status');
 
   let idx = 0;
   let answers = new Array(questions.length).fill(null);
@@ -87,6 +89,7 @@
     transitioning = false;
     const q = questions[idx];
     if (stepLabel) stepLabel.textContent = `PREGUNTA ${idx + 1} DE ${questions.length}`;
+    if (unlockStatus) unlockStatus.textContent = `🔒 SOLO ${questions.length - idx} ${questions.length - idx === 1 ? 'RESPUESTA' : 'RESPUESTAS'} PARA DESBLOQUEAR TU RECOMENDACIÓN`;
     if (idx === 2) trackCustomOnce('QuizMidpoint', {step_reached: 3, questions_total: questions.length});
     const progressPercent = Math.round((idx / questions.length) * 100);
     bar.style.width = `${progressPercent}%`;
@@ -152,6 +155,8 @@
 
   const showResult = () => {
     const p = chooseProfile();
+    const desc = `${obstacleGuides[answers[1] ?? 0]} ${nextStepGuides[answers[3] ?? 0]}`;
+    if (unlockStatus) unlockStatus.textContent = '🔓 ¡LISTO! TU RECOMENDACIÓN ESTÁ DESBLOQUEADA';
     transitioning = true;
     // Completa el quiz sin mostrar otra pantalla intermedia.
     // Dispara Lead apenas quando as 4 respostas forem concluídas.
@@ -174,7 +179,7 @@
     trackCustomOnce('QuizComplete', {questions_total: questions.length});
     try {
       localStorage.setItem('quiz_offer_line', p.title);
-      localStorage.setItem('quiz_offer_desc', p.desc);
+      localStorage.setItem('quiz_offer_desc', desc);
     } catch (_) {
       // El bloqueo del almacenamiento no debe impedir el acceso a la oferta.
     }

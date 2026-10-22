@@ -22,11 +22,21 @@
   });
 
   const personalLine = document.getElementById('personalLine');
+  const personalDesc = document.getElementById('personalDesc');
+  const unlocked = document.getElementById('offer-unlock-status');
+  const unlockedTitle = document.getElementById('offer-unlock-title');
   try {
     const saved = localStorage.getItem('quiz_offer_line');
+    const desc = localStorage.getItem('quiz_offer_desc');
     if (personalLine && saved && saved.startsWith('TU ENFOQUE: ')) {
       personalLine.textContent = saved;
       personalLine.hidden = false;
+      if (personalDesc && desc) {
+        personalDesc.textContent = desc;
+        personalDesc.hidden = false;
+      }
+      if (unlocked) unlocked.textContent = '🔓 ¡DESBLOQUEASTE TU RECOMENDACIÓN!';
+      if (unlockedTitle) unlockedTitle.textContent = saved;
     }
   } catch (_) {
     // Sin almacenamiento, mostramos la oferta general.
