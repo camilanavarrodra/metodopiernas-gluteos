@@ -61,15 +61,19 @@ h2{font-size:clamp(26px,6.9vw,33px);margin:0 0 16px}
 .actions{margin-top:11px;min-height:30px}
 .footer-note{margin-top:10px}
 @media (max-width:390px){main{padding-top:10px}.teaser{padding:13px}.panel{padding:16px 13px}.option{min-height:53px;font-size:14px}.teaser h1{font-size:27px}}
+
+.teaser h1{font-size:clamp(25px,6.9vw,38px);line-height:1.06;letter-spacing:-.045em;max-width:600px}
+.teaser h1 em{display:inline;color:var(--lime)}
+@media(max-width:450px){.teaser h1{font-size:clamp(24px,7vw,31px);line-height:1.05}.teaser p{font-size:12.5px}.ribbon{font-size:9px}.teaser{padding:13px 14px 12px}}
 </style>
 </head>
 <body>
 <main>
   <section class="teaser" aria-label="Tu recomendación se desbloquea después de 4 preguntas">
-    <div class="ribbon"><span class="lock" aria-hidden="true">🔓</span><span>4 PREGUNTAS · UNA RECOMENDACIÓN</span></div>
-    <h1>🔓 DESBLOQUEA <em>TU ENFOQUE</em></h1>
-    <p>Responde rápido. <b>Descubre cómo empezar al terminar.</b></p>
-    <div id="unlock-status" class="unlock-count" aria-live="polite">🔒 FALTAN 4 RESPUESTAS</div>
+    <div class="ribbon"><span class="lock" aria-hidden="true">🔓</span><span>4 RESPUESTAS · RECOMENDACIÓN A TU MEDIDA</span></div>
+    <h1>🔥 ¡DESBLOQUEA TU <em>RECOMENDACIÓN PERSONALIZADA!</em></h1>
+    <p><b>¡Solo 4 respuestas!</b> Descubre cómo empezar según tu objetivo y conoce el plan al finalizar.</p>
+    <div id="unlock-status" class="unlock-count" aria-live="polite">⚡ RESPONDE Y DESBLOQUEA · FALTAN 4</div>
   </section>
   <section class="panel" aria-label="Cuestionario de piernas y glúteos">
     <div id="question-stage">
@@ -125,7 +129,7 @@ function render(){
  qTitle.textContent=q.title;qSub.textContent=q.sub;
  step.textContent="PREGUNTA "+(index+1)+" DE 4";
  const remaining=4-index;
- status.textContent="🔒 FALTAN "+remaining+" "+(remaining===1?"RESPUESTA":"RESPUESTAS");
+ status.textContent="⚡ RESPONDE Y DESBLOQUEA · FALTAN "+remaining+" "+(remaining===1?"RESPUESTA":"RESPUESTAS");
  progress.style.width=Math.round(index/4*100)+"%";
  progress.parentElement.setAttribute("aria-valuenow",String(Math.round(index/4*100)));
  opts.replaceChildren();
