@@ -3,8 +3,9 @@
   const checkout = cfg.checkoutUrl || '#';
   document.querySelectorAll('[data-checkout]').forEach(a => {
     a.setAttribute('href', checkout);
-    a.setAttribute('target', '_blank');
-    a.setAttribute('rel', 'noopener noreferrer');
+    // Abre o pagamento na mesma aba para evitar nova janela no celular.
+    a.setAttribute('target', '_self');
+    a.removeAttribute('rel');
     // Clique no checkout não significa checkout iniciado nem compra confirmada.
     // Eventos padrão InitiateCheckout/Purchase devem vir da plataforma de pagamento.
     a.addEventListener('click', () => {
