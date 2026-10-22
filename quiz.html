@@ -84,7 +84,7 @@ h2{font-size:clamp(26px,6.9vw,33px);margin:0 0 16px}
   </section>
   <section class="panel" aria-label="Cuestionario de piernas y glúteos">
     <div id="question-stage">
-      <div id="step" class="step" aria-live="polite">PREGUNTA 1 DE 4</div>
+      
       <div class="track" role="progressbar" aria-label="Progreso del cuestionario" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="bar"></span></div>
       <h2 id="title">¿QUÉ QUIERES CAMBIAR?</h2>
       <p id="subtitle" class="sub"></p>
@@ -118,7 +118,7 @@ const opts=document.getElementById("options");
 const back=document.getElementById("back");
 const progress=document.getElementById("bar");
 const status=document.getElementById("unlock-status");
-const step=document.getElementById("step");
+
 let index=0,locked=false;
 const answers=Array(questions.length).fill(null);
 function event(name,custom){
@@ -134,7 +134,7 @@ function render(){
  locked=false;
  const q=questions[index];
  qTitle.textContent=q.title;qSub.textContent=q.sub;
- step.textContent="PREGUNTA "+(index+1)+" DE 4";
+
  const remaining=4-index;
  status.textContent="⚡ RESPONDE Y DESBLOQUEA · FALTAN "+remaining+" "+(remaining===1?"RESPUESTA":"RESPUESTAS");
  progress.style.width=Math.round(index/4*100)+"%";
