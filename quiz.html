@@ -77,10 +77,8 @@ h2{font-size:clamp(26px,6.9vw,33px);margin:0 0 16px}
 <body>
 <main>
   <section class="teaser" aria-label="Tu recomendación se desbloquea después de 4 preguntas">
-    <div class="ribbon"><span class="lock" aria-hidden="true">🔓</span><span>4 RESPUESTAS · RECOMENDACIÓN A TU MEDIDA</span></div>
     <h1>🔥 ¡DESBLOQUEA TU <em>RECOMENDACIÓN PERSONALIZADA!</em></h1>
-    <p><b>¡Solo 4 respuestas!</b> Descubre cómo empezar según tu objetivo y conoce el plan al finalizar.</p>
-    <div id="unlock-status" class="unlock-count" aria-live="polite">⚡ RESPONDE Y DESBLOQUEA · FALTAN 4</div>
+    <p>Descubre cómo empezar según tu objetivo y conoce el plan al finalizar.</p>
   </section>
   <section class="panel" aria-label="Cuestionario de piernas y glúteos">
     <div id="question-stage">
@@ -117,7 +115,6 @@ const qSub=document.getElementById("subtitle");
 const opts=document.getElementById("options");
 const back=document.getElementById("back");
 const progress=document.getElementById("bar");
-const status=document.getElementById("unlock-status");
 
 let index=0,locked=false;
 const answers=Array(questions.length).fill(null);
@@ -135,8 +132,6 @@ function render(){
  const q=questions[index];
  qTitle.textContent=q.title;qSub.textContent=q.sub;
 
- const remaining=4-index;
- status.textContent="⚡ RESPONDE Y DESBLOQUEA · FALTAN "+remaining+" "+(remaining===1?"RESPUESTA":"RESPUESTAS");
  progress.style.width=Math.round(index/4*100)+"%";
  progress.parentElement.setAttribute("aria-valuenow",String(Math.round(index/4*100)));
  opts.replaceChildren();
@@ -164,7 +159,6 @@ function done(){
  intro.hidden=true;finish.hidden=false;
  // Hidden sections must be hidden even if CSS classes specify display.
  intro.style.display="none";finish.style.display="block";
- status.textContent="🔓 ¡ENFOQUE DESBLOQUEADO!";
  const focus=["TU ENFOQUE: GLÚTEOS MÁS FIRMES","TU ENFOQUE: PIERNAS MÁS FUERTES","TU ENFOQUE: PIERNAS Y GLÚTEOS"];
  const attempts=["Una guía organizada puede ayudarte a dejar de saltar de un video a otro.","Puedes empezar desde casa, sin depender de ir al gimnasio.","Una rutina sencilla es una buena forma de retomar el hábito."];
  const path=["Sigue una guía clara para saber por dónde empezar.","Prueba sesiones cortas de unos 20 minutos a tu ritmo.","Avanza con la estructura progresiva de 4 semanas."];
