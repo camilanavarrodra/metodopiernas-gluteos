@@ -356,3 +356,7 @@
     min-height:0;
   }
 }
+
+/* v14: passo do quiz visível, pensado para leitura no celular. */
+.quiz-neon .quiz-step-label{color:#b9ff51;font-size:12px;letter-spacing:.13em;font-weight:950;margin:0 0 12px;line-height:1.3;}
+@media(max-width:760px){.quiz-neon .quiz-step-label{font-size:11px;margin-bottom:10px;}.quiz-neon .question-title{font-size:clamp(26px,7vw,35px);line-height:1.13;}.quiz-neon .question-sub{font-size:14px;line-height:1.45;}.quiz-neon .option{min-height:68px;line-height:1.3;}}

@@ -1,25 +1,57 @@
 (() => {
   const questions = [
-    { t: '¿QUÉ QUIERES CAMBIAR?', s: '', o: ['Glúteos con más forma', 'Piernas más firmes', 'Ambos'] },
-    { t: '¿QUÉ TE DETIENE?', s: '', o: ['No sé qué hacer', 'No tengo tiempo', 'No soy constante'] },
-    { t: '¿CUÁNTO TIEMPO TIENES?', s: '', o: ['10–20 minutos', '20–30 minutos', 'Depende del día'] },
-    { t: '¿CUÁL ES TU NIVEL?', s: '', o: ['Principiante', 'Intermedio', 'Estoy retomando'] }
+    {
+      t: '¿QUÉ TE PREOCUPA MÁS DE TUS PIERNAS Y GLÚTEOS?',
+      s: 'Cuéntanos qué te gustaría empezar a mejorar.',
+      o: [
+        'Mis glúteos se sienten poco firmes',
+        'Mis piernas no tienen la fuerza o firmeza que busco',
+        'Quiero trabajar ambas zonas y no sé cómo empezar'
+      ]
+    },
+    {
+      t: '¿QUÉ TE HA IMPEDIDO LOGRARLO HASTA AHORA?',
+      s: 'No siempre faltan ganas: a veces falta una rutina que encaje contigo.',
+      o: [
+        'No sé qué ejercicios hacer ni en qué orden',
+        'Empiezo motivada, pero pierdo la constancia',
+        'El gimnasio y las rutinas largas no encajan en mi día'
+      ]
+    },
+    {
+      t: '¿QUÉ TE RESULTA MÁS DIFÍCIL CUANDO ENTRENAS?',
+      s: 'Identificar esa dificultad es el primer paso para simplificar tu rutina.',
+      o: [
+        'No sé si hago bien los movimientos',
+        'Me canso o me desanimo demasiado rápido',
+        'No sé cómo organizar mis entrenamientos cada semana'
+      ]
+    },
+    {
+      t: '¿QUÉ TE AYUDARÍA A EMPEZAR CON MÁS CONFIANZA?',
+      s: 'Puedes comenzar con un plan sencillo, desde casa y a tu ritmo.',
+      o: [
+        'Sesiones cortas de unos 20 minutos',
+        'Una guía clara para saber qué hacer',
+        'Un plan de 4 semanas con progresión gradual'
+      ]
+    }
   ];
 
   // El programa de 4 semanas es el mismo; la recomendación orienta
   // sobre la prioridad elegida, no promete una rutina creada individualmente.
   const profiles = {
     glutes: {
-      title: 'TU ENFOQUE: GLÚTEOS MÁS FUERTES',
-      desc: 'Un programa de 4 semanas en casa, para empezar con una rutina clara.'
+      title: 'TU ENFOQUE: GLÚTEOS MÁS FIRMES',
+      desc: 'Empieza con una rutina clara de 20 minutos para entrenar glúteos en casa.'
     },
     legs: {
       title: 'TU ENFOQUE: PIERNAS MÁS FIRMES',
-      desc: 'Un programa de 4 semanas en casa, con sesiones cortas y progresivas.'
+      desc: 'Empieza con sesiones cortas y progresivas para fortalecer tus piernas en casa.'
     },
     both: {
       title: 'TU ENFOQUE: PIERNAS Y GLÚTEOS',
-      desc: 'Un programa de 4 semanas en casa para entrenar ambas zonas.'
+      desc: 'Empieza con un programa de 4 semanas para trabajar piernas y glúteos desde casa.'
     }
   };
 
@@ -29,6 +61,7 @@
   const opts = document.getElementById('opts');
   const prev = document.getElementById('prev');
   const bar = document.getElementById('bar');
+  const stepLabel = document.getElementById('quiz-step-label');
 
   let idx = 0;
   let answers = new Array(questions.length).fill(null);
@@ -53,6 +86,7 @@
   const render = () => {
     transitioning = false;
     const q = questions[idx];
+    if (stepLabel) stepLabel.textContent = `PREGUNTA ${idx + 1} DE ${questions.length}`;
     if (idx === 2) trackCustomOnce('QuizMidpoint', {step_reached: 3, questions_total: questions.length});
     const progressPercent = Math.round((idx / questions.length) * 100);
     bar.style.width = `${progressPercent}%`;
