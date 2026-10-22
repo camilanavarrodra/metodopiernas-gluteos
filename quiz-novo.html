@@ -45,43 +45,59 @@ h2{font-size:clamp(26px,7vw,34px);line-height:1.12;letter-spacing:-.033em;margin
 .noscript{padding:16px;background:#4a1a57;border-radius:12px}
 @media(min-width:760px){main{padding-top:30px}.teaser{padding:27px 30px}.teaser p{font-size:16px}.panel{padding:29px 30px}.option{font-size:15px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important}}
+
+/* v17: contenido corto, primera respuesta visible sin hacer scroll */
+.teaser{padding:14px 16px 12px;margin-bottom:10px;border-radius:17px}
+.teaser h1{font-size:clamp(26px,7.2vw,38px);margin:11px 0 7px}
+.teaser p{font-size:13px;line-height:1.35;margin:0 0 9px}
+.unlock-count{padding-top:9px;font-size:11px}
+.panel{min-height:auto;padding:18px 15px 14px}
+.step{margin-bottom:9px}
+.track{height:8px;margin-bottom:15px}
+h2{font-size:clamp(26px,6.9vw,33px);margin:0 0 16px}
+.sub{display:none}
+.options{gap:9px}
+.option{min-height:56px;padding:11px 13px;border-radius:13px;font-size:15px}
+.actions{margin-top:11px;min-height:30px}
+.footer-note{margin-top:10px}
+@media (max-width:390px){main{padding-top:10px}.teaser{padding:13px}.panel{padding:16px 13px}.option{min-height:53px;font-size:14px}.teaser h1{font-size:27px}}
 </style>
 </head>
 <body>
 <main>
   <section class="teaser" aria-label="Tu recomendación se desbloquea después de 4 preguntas">
-    <div class="ribbon"><span class="lock" aria-hidden="true">🔓</span><span>4 PREGUNTAS RÁPIDAS · ENFOQUE PARA TU OBJETIVO</span></div>
-    <h1>¡TU PLAN ESTÁ A <em>4 RESPUESTAS!</em></h1>
-    <p>Cuéntanos qué te preocupa y qué te ha frenado. Al terminar, <b>descubrirás un enfoque recomendado</b> para empezar a entrenar piernas y glúteos en casa.</p>
-    <div id="unlock-status" class="unlock-count" aria-live="polite">🔒 SOLO 4 RESPUESTAS PARA DESBLOQUEAR TU RECOMENDACIÓN</div>
+    <div class="ribbon"><span class="lock" aria-hidden="true">🔓</span><span>4 PREGUNTAS · UNA RECOMENDACIÓN</span></div>
+    <h1>🔓 DESBLOQUEA <em>TU ENFOQUE</em></h1>
+    <p>Responde rápido. <b>Descubre cómo empezar al terminar.</b></p>
+    <div id="unlock-status" class="unlock-count" aria-live="polite">🔒 FALTAN 4 RESPUESTAS</div>
   </section>
   <section class="panel" aria-label="Cuestionario de piernas y glúteos">
     <div id="question-stage">
       <div id="step" class="step" aria-live="polite">PREGUNTA 1 DE 4</div>
       <div class="track" role="progressbar" aria-label="Progreso del cuestionario" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="bar"></span></div>
-      <h2 id="title">¿QUÉ ES LO QUE MÁS TE MOLESTA AL MIRAR TUS PIERNAS O GLÚTEOS?</h2>
-      <p id="subtitle" class="sub">Elige lo que más te gustaría empezar a trabajar.</p>
+      <h2 id="title">¿QUÉ QUIERES CAMBIAR?</h2>
+      <p id="subtitle" class="sub"></p>
       <div id="options" class="options" role="group" aria-label="Opciones de respuesta"></div>
       <div class="actions"><button id="back" class="back" type="button" hidden>← VOLVER</button></div>
     </div>
     <div id="finish-stage" class="loading" hidden>
       <div class="unlocked" aria-hidden="true">🔓</div>
-      <h2>¡RECOMENDACIÓN DESBLOQUEADA!</h2>
-      <p>Estamos preparando el enfoque para tu objetivo. A continuación podrás conocer el programa de 4 semanas.</p>
+      <h2>¡YA TIENES TU ENFOQUE!</h2>
+      <p>Abriendo tu recomendación…</p>
       <div class="spinner" aria-hidden="true"></div>
     </div>
   </section>
-  <p class="footer-note">En solo 4 respuestas · Sin registro · Programa de 4 semanas para entrenar en casa</p>
+  <p class="footer-note">4 respuestas · Sin registro</p>
   <noscript><p class="noscript">Para responder el cuestionario, activa JavaScript en tu navegador.</p></noscript>
 </main>
 <script>
 (function(){
 "use strict";
 const questions=[
- {title:"¿QUÉ ES LO QUE MÁS TE MOLESTA AL MIRAR TUS PIERNAS O GLÚTEOS?",sub:"Elige lo que más te gustaría empezar a trabajar.",options:["Siento mis glúteos poco firmes","Quiero fortalecer y dar más firmeza a mis piernas","Me gustaría trabajar ambas zonas, pero no sé por dónde empezar"]},
- {title:"¿QUÉ HAS INTENTADO SIN PODER MANTENERLO?",sub:"Muchas veces, el problema es encontrar una rutina que encaje contigo.",options:["Videos sueltos sin saber qué rutina seguir","Ir al gimnasio, pero lo terminé dejando","Intenté empezar varias veces y siempre lo pospongo"]},
- {title:"¿QUÉ TE FRUSTRA MÁS CUANDO INTENTAS ENTRENAR?",sub:"Tu punto de partida importa más que hacer todo perfecto.",options:["No sé qué ejercicios hacer ni cómo organizarlos","Las rutinas son largas y no tengo tiempo","Me cuesta ser constante semana tras semana"]},
- {title:"¿QUÉ NECESITARÍAS PARA EMPEZAR CON SEGURIDAD?",sub:"Descubre un enfoque sencillo para empezar desde casa.",options:["Una guía clara para saber qué hacer primero","Entrenamientos cortos de unos 20 minutos","Un plan progresivo de 4 semanas para seguir el ritmo"]}
+ {title:"¿QUÉ QUIERES CAMBIAR?",sub:"",options:["Glúteos más firmes","Piernas más fuertes","Las dos cosas"]},
+ {title:"¿QUÉ TE FRENA?",sub:"",options:["No sé cómo empezar","No tengo tiempo","Me falta constancia"]},
+ {title:"¿QUÉ YA INTENTASTE?",sub:"",options:["Videos sin orden","Ir al gimnasio","Empezar y dejarlo"]},
+ {title:"¿QUÉ TE AYUDARÍA MÁS?",sub:"",options:["Una guía clara","Entrenos de 20 min","Un plan de 4 semanas"]}
 ];
 const intro=document.getElementById("question-stage");
 const finish=document.getElementById("finish-stage");
@@ -109,7 +125,7 @@ function render(){
  qTitle.textContent=q.title;qSub.textContent=q.sub;
  step.textContent="PREGUNTA "+(index+1)+" DE 4";
  const remaining=4-index;
- status.textContent="🔒 SOLO "+remaining+" "+(remaining===1?"RESPUESTA":"RESPUESTAS")+" PARA DESBLOQUEAR TU RECOMENDACIÓN";
+ status.textContent="🔒 FALTAN "+remaining+" "+(remaining===1?"RESPUESTA":"RESPUESTAS");
  progress.style.width=Math.round(index/4*100)+"%";
  progress.parentElement.setAttribute("aria-valuenow",String(Math.round(index/4*100)));
  opts.replaceChildren();
@@ -137,7 +153,7 @@ function done(){
  intro.hidden=true;finish.hidden=false;
  // Hidden sections must be hidden even if CSS classes specify display.
  intro.style.display="none";finish.style.display="block";
- status.textContent="🔓 ¡TU RECOMENDACIÓN ESTÁ DESBLOQUEADA!";
+ status.textContent="🔓 ¡ENFOQUE DESBLOQUEADO!";
  const focus=["TU ENFOQUE: GLÚTEOS MÁS FIRMES","TU ENFOQUE: PIERNAS MÁS FUERTES","TU ENFOQUE: PIERNAS Y GLÚTEOS"];
  const attempts=["Una guía organizada puede ayudarte a dejar de saltar de un video a otro.","Puedes empezar desde casa, sin depender de ir al gimnasio.","Una rutina sencilla es una buena forma de retomar el hábito."];
  const path=["Sigue una guía clara para saber por dónde empezar.","Prueba sesiones cortas de unos 20 minutos a tu ritmo.","Avanza con la estructura progresiva de 4 semanas."];
